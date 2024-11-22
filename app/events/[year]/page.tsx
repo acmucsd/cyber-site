@@ -1,12 +1,24 @@
 import Events from "@/components/Events";
-import { getAllCyberEvents } from "@/lib/events";
+import { getAllCyberEvents } from "@/lib/api/EventsAPI";
+import { FIRST_YEAR, getCurrentAcademicYear } from "@/lib/util/events";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-	title: "Events | ACM Cyber",
+// Cache the events for 1 day
+export const revalidate = 86400;
+
+type EventsPageProps = {
+	params: Promise<{ year: string }>;
 };
 
-export default async function EventsPage({ params }: { params: Promise<{ year: string }> }) {
+export async function generateMetadata({ params }: EventsPageProps): Promise<Metadata> {
+	const { year } = await params;
+
+	return {
+		title: `Events in ${year}–${+year + 1} | ACM Cyber`,
+	};
+}
+
+export default async function EventsPage({ params }: EventsPageProps) {
 	// TODO: handle invalid years
 	const { year } = await params;
 	const start = new Date(+year, 7, 1);
@@ -21,4 +33,13 @@ export default async function EventsPage({ params }: { params: Promise<{ year: s
 			archive
 		/>
 	);
+}
+
+export async function generateStaticParams() {
+	const currentYear = getCurrentAcademicYear();
+	const years = [];
+	for (let year = FIRST_YEAR; year <= currentYear; year++) {
+		years.push({ year: String(year) });
+	}
+	return years;
 }

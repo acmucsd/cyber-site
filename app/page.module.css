@@ -1,5 +1,23 @@
 .container {
+	margin: 0 auto;
+	width: 100%;
+	max-width: var(--max-width);
 	flex: auto;
 	display: flex;
 	flex-direction: column;
+}
+
+.stats {
+	display: flex;
+	gap: 20px;
+	padding: 20px;
+	flex-wrap: wrap;
+}
+
+.stat {
+	flex: 1 0 0;
+}
+
+.statDesc {
+	font-size: 24px;
 }

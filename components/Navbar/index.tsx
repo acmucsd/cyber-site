@@ -11,7 +11,7 @@ export default function Navbar() {
 
 	return (
 		<header className={styles.navbar}>
-			<nav className={styles.content}>
+			<nav className={styles.container}>
 				<Link href="/" className={styles.logoWrapper}>
 					<Image src={Logo} alt="ACM Cyber logo" width={36} height={36} />
 					<span>
@@ -24,7 +24,7 @@ export default function Navbar() {
 				</Link>
 				<Link href="/events" className={styles.link}>
 					Events
-					{pathname === "/events" ? <span className={styles.active} /> : null}
+					{pathname.startsWith("/events") ? <span className={styles.active} /> : null}
 				</Link>
 				<Link href="/resources" className={styles.link}>
 					Resources

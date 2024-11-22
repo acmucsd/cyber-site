@@ -1,14 +1,19 @@
 :root {
+	--theme: #52bfbf;
+	--max-width: 1200px;
+
 	--background: #ffffff;
 	--foreground: #171717;
-
-	--max-width: 1200px;
+	--card-border: 1px solid rgba(0, 0, 0, 0.1);
+	--card-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
 		--background: #0a0a0a;
 		--foreground: #ededed;
+		--card-border: 1px solid rgba(255, 255, 255, 0.2);
+		--card-shadow: none;
 	}
 }
 

@@ -1,0 +1,32 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	border-radius: 10px;
+	border: var(--card-border);
+	box-shadow: var(--card-shadow);
+	white-space: nowrap;
+}
+
+.cover {
+	aspect-ratio: 16 / 9;
+	width: 100%;
+	position: relative;
+}
+
+.info {
+	padding: 10px;
+	font-size: 14px;
+	display: flex;
+	flex-direction: column;
+}
+
+.info p {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.title {
+	font-size: 18px;
+	font-weight: bold;
+}

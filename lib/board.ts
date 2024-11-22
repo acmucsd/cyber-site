@@ -40,29 +40,40 @@ export async function getBoard(): Promise<AcmBoard[]> {
 		const sheet = doc.sheetsByIndex[i];
 		sheet.loadHeaderRow(2);
 		const rows = await sheet.getRows();
+		const members = rows
+			.map((row): BoardMember => {
+				const specialization = row.get("Specialized Position");
+				const photo = row.get("Profile Picture") || null;
+				return {
+					team: row.get("Team")?.toLowerCase(),
+					position: row.get("Position"),
+					specialization: specialization === "-----" ? null : specialization || null,
+					name: row.get("Name"),
+					pronouns: row.get("Pronouns"),
+					email: row.get("ACM Email"),
+					github: row.get("Github") || null,
+					linkedin: row.get("LinkedIn") || null,
+					website: row.get("Website") || null,
+					major: row.get("Major"),
+					gradYear: +row.get("Grad Year"),
+					// Discord CDN no longer works
+					photo: photo?.startsWith("https://cdn.discordapp.com/") ? null : photo,
+				};
+			})
+			.filter((member) => member.team === "cyber" && member.name && member.position && member.email);
+		if (members.length === 0) {
+			continue;
+		}
 		years.push({
 			startYear: 2000 + +(sheet.title.match(/\d+/)?.[0] ?? ""),
-			members: rows
-				.map((row): BoardMember => {
-					const specialization = row.get("Specialized Position");
-					return {
-						team: row.get("Team")?.toLowerCase(),
-						position: row.get("Position"),
-						specialization: specialization === "-----" ? null : specialization || null,
-						name: row.get("Name"),
-						pronouns: row.get("Pronouns"),
-						email: row.get("ACM Email"),
-						github: row.get("Github") || null,
-						linkedin: row.get("LinkedIn") || null,
-						website: row.get("Website") || null,
-						major: row.get("Major"),
-						gradYear: +row.get("Grad Year"),
-						photo: row.get("Profile Picture") || null,
-					};
-				})
-				.filter((member) => member.team === "cyber" && member.name && member.position && member.email),
+			members,
 		});
-		break;
+
+		// Avoid hitting Google Sheets rate limit due to Next cache being disabled
+		// in dev mode
+		if (process.env.NODE_ENV === "development" && i === 1) {
+			break;
+		}
 	}
 
 	return years;

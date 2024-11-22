@@ -8,7 +8,9 @@ export type BoardCardProps = {
 export default function BoardCard({ member }: BoardCardProps) {
 	return (
 		<div className={styles.card}>
-			{member.photo ? <Image src={member.photo} alt={`Photo of ${member.name}`} width={48} height={48} /> : null}
+			{member.photo ? (
+				<Image src={member.photo} alt={`Photo of ${member.name}`} width={48} height={48} className={styles.photo} />
+			) : null}
 			<p>{member.name}</p>
 		</div>
 	);

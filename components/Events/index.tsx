@@ -1,9 +1,7 @@
-import { getCurrentAcademicYear, PublicEvent } from "@/lib/events";
+import { FIRST_YEAR, getCurrentAcademicYear, PublicEvent } from "@/lib/events";
 import Link from "next/link";
 import EventCard from "../EventCard";
 import styles from "./style.module.css";
-
-const FIRST_YEAR = 2019;
 
 export type EventsProps = {
 	startYear: number;
@@ -24,7 +22,7 @@ export default function Events({ startYear, events, upcoming = [], archive = fal
 	}
 
 	return (
-		<div className={styles.container}>
+		<main className={styles.container}>
 			{upcoming.length === 1 ? (
 				<>
 					<h1>Coming up next</h1>
@@ -48,6 +46,6 @@ export default function Events({ startYear, events, upcoming = [], archive = fal
 					<EventCard event={event} key={event.uuid} />
 				))}
 			</div>
-		</div>
+		</main>
 	);
 }

@@ -2,6 +2,9 @@ import Events from "@/components/Events";
 import { getAllCyberEvents, getCurrentAcademicYear } from "@/lib/events";
 import { Metadata } from "next";
 
+// Cache the events for 1 hour
+export const revalidate = 3600;
+
 export const metadata: Metadata = {
 	title: "Events | ACM Cyber",
 };

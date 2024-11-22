@@ -4,4 +4,13 @@
 	border-radius: 10px;
 	border: var(--card-border);
 	box-shadow: var(--card-shadow);
+	padding: 10px;
+	align-items: center;
+	text-align: center;
+	gap: 10px;
+}
+
+.photo {
+	object-fit: cover;
+	border-radius: 50%;
 }

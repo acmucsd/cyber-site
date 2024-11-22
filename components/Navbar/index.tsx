@@ -20,15 +20,15 @@ export default function Navbar() {
 				</Link>
 				<Link href="/about" className={styles.link}>
 					About
-					{pathname === "/about" ? <span className={styles.active} /> : null}
+					{pathname.startsWith("/about") ? <span className={styles.active} /> : null}
 				</Link>
 				<Link href="/events" className={styles.link}>
 					Events
-					{pathname.startsWith("/events") ? <span className={styles.active} /> : null}
+					{pathname.startsWith("/event") ? <span className={styles.active} /> : null}
 				</Link>
 				<Link href="/resources" className={styles.link}>
 					Resources
-					{pathname === "/resources" ? <span className={styles.active} /> : null}
+					{pathname.startsWith("/resources") ? <span className={styles.active} /> : null}
 				</Link>
 			</nav>
 		</header>

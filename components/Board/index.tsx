@@ -7,11 +7,12 @@ export type BoardProps = {
 	startYear: number;
 	members: BoardMember[];
 	years: number[];
+	current?: boolean;
 };
-export default function Board({ startYear, members, years }: BoardProps) {
+export default function Board({ startYear, members, years, current = false }: BoardProps) {
 	return (
-		<div className={styles.container}>
-			<h1>{startYear === years[0] ? "ACM Cyber board" : `ACM Cyber board in ${startYear}–${startYear + 1}`}</h1>
+		<>
+			<h1>{current ? "Our Team" : `Board in ${startYear}–${startYear + 1}`}</h1>
 			<div className={styles.years}>
 				{years.map((year) => (
 					<Link
@@ -28,6 +29,6 @@ export default function Board({ startYear, members, years }: BoardProps) {
 					<BoardCard member={member} key={member.name} />
 				))}
 			</div>
-		</div>
+		</>
 	);
 }

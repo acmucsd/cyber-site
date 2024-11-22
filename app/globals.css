@@ -1,12 +1,19 @@
 :root {
+	--theme: #52bfbf;
+	--max-width: 1200px;
+
 	--background: #ffffff;
 	--foreground: #171717;
+	--card-border: 1px solid rgba(0, 0, 0, 0.1);
+	--card-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--background: #0a0a0a;
+		--background: #030712;
 		--foreground: #ededed;
+		--card-border: 1px solid color-mix(in srgb, var(--theme) 30%, transparent);
+		--card-shadow: none;
 	}
 }
 
@@ -16,12 +23,17 @@ body {
 	overflow-x: hidden;
 }
 
+html {
+	height: 100%;
+}
 body {
 	color: var(--foreground);
 	background: var(--background);
-	font-family: Arial, Helvetica, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
 }
 
 * {

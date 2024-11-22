@@ -1,0 +1,24 @@
+.years {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.year {
+	padding: 5px 10px;
+	border-radius: 50px;
+	border: var(--card-border);
+	box-shadow: var(--card-shadow);
+}
+
+.active {
+	border-color: transparent;
+	background-color: var(--theme);
+	color: white;
+}
+
+.members {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	gap: 10px;
+}

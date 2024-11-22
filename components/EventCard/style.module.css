@@ -1,0 +1,54 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	border-radius: 10px;
+	border: var(--card-border);
+	box-shadow: var(--card-shadow);
+	white-space: nowrap;
+}
+
+@media (min-width: 1200px) {
+	.large {
+		display: grid;
+		grid-template-areas:
+			"cover info"
+			"cover desc";
+		grid-template-columns: 2fr 1fr;
+		grid-template-rows: auto 1fr;
+	}
+}
+
+.cover {
+	aspect-ratio: 16 / 9;
+	width: 100%;
+	position: relative;
+	grid-area: cover;
+}
+.large .cover {
+	width: unset;
+}
+
+.info {
+	padding: 10px;
+	font-size: 14px;
+	display: flex;
+	flex-direction: column;
+	grid-area: info;
+}
+
+.info p {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.title {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.description {
+	white-space: pre-wrap;
+	grid-area: desc;
+	padding: 10px;
+}

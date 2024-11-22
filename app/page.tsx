@@ -1,3 +1,12 @@
+import styles from "./page.module.css";
+
 export default function Home() {
-	return <></>;
+	return (
+		<div className={styles.content}>
+			{"<Hero></Hero>"}
+			{"<Sponsorship></Sponsorship>"}
+			{"Resources"}
+			{"event archive"}
+		</div>
+	);
 }

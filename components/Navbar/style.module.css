@@ -1,0 +1,41 @@
+.navbar {
+	display: flex;
+	justify-content: center;
+	border-bottom: 3px solid #52bfbf;
+	box-sizing: border-box;
+	height: 60px;
+	overflow: hidden;
+}
+
+.content {
+	width: 100%;
+	max-width: var(--max-width);
+	display: flex;
+	padding: 0 20px;
+	font-size: 18px;
+	gap: 20px;
+}
+
+.logoWrapper {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	margin-right: auto;
+}
+
+.link {
+	display: flex;
+	align-items: center;
+	font-weight: 500;
+	position: relative;
+}
+.active {
+	background-color: #52bfbf;
+	position: absolute;
+	bottom: -10px;
+	left: -10px;
+	right: -10px;
+	height: 10px;
+	border-radius: 50px;
+	filter: blur(10px);
+}

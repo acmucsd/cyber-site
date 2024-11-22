@@ -1,5 +1,5 @@
 .footer {
-	--background: #010309;
+	--background: #202020;
 	--foreground: #ededed;
 	background-color: var(--background);
 	display: flex;
@@ -30,13 +30,46 @@
 	transition: background 0.15s;
 }
 .acm-logo {
-	transition: background 1.4s;
 	mask-image: url("/assets/acm.svg");
-	background-size: 100px 200px;
+	position: relative;
 }
-.acm-logo:hover {
-	background: linear-gradient(270deg,#ff6f6f,#f9a857 18.75%,#80ce1c 36.98%,#51c0c0 55.73%,#62b0ff 75%,#816dff, #ff6f6f 100%);
-	background-position: 150px 0;
+@keyframes rainbow-spin {
+	0% {
+		background-position: 0%;
+		opacity: 0;
+	}
+	20% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		background-position: 600% 0;
+		opacity: 0;
+	}
+}
+.acm-logo::after {
+	content: "";
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+}
+.acm-logo:hover::after {
+	background: linear-gradient(90deg in oklab,
+		oklab(71.7531% 0.162851 0.067685) 0%, 
+		oklab(79.5766% 0.060439 0.121605) 18.75%,
+		oklab(77.1074% -0.138729 0.153649) 36.98%,
+		oklab(74.4551% -0.096795 -0.026325) 55.73%,
+		oklab(74.0847% -0.046345 -0.130714) 75%,
+		oklab(62.9435% 0.05375 -0.201375),
+		oklab(71.7531% 0.162851 0.067685) 100%
+	);
+	background-size: 100px 200px;
+	animation: rainbow-spin forwards linear 1 1.5s;
 }
 .youtube-logo {
 	mask-image: url("/assets/youtube.svg");

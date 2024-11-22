@@ -37,12 +37,19 @@
 	border-radius: 50px;
 	border: var(--card-border);
 	box-shadow: var(--card-shadow);
+	transition: background-color 0.2s;
+}
+.year:hover {
+	background-color: var(--card-hover);
 }
 
 .active {
 	border-color: transparent;
 	background-color: var(--theme);
-	color: white;
+	color: var(--theme-text);
+}
+.active:hover {
+	background-color: var(--theme-hover);
 }
 
 .events {

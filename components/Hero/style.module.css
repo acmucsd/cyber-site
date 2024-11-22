@@ -1,0 +1,33 @@
+.wrapper {
+	height: calc(100vh - 60px);
+	position: relative;
+	display: flex;
+	align-items: center;
+	padding: 20px;
+}
+
+.blob {
+	position: absolute;
+	right: -100px;
+	top: calc(50vh - 180px);
+	width: 600px;
+	height: 250px;
+	border-radius: 300px;
+	background-image: linear-gradient(hsl(170, 79%, 55%), hsl(190, 79%, 55%));
+	filter: blur(100px);
+	opacity: 0.5;
+	transform: rotate(-10deg);
+}
+
+.buttons {
+	display: flex;
+	margin-top: 10px;
+}
+
+.button {
+	display: block;
+	padding: 10px 15px;
+	border-radius: 30px;
+	background-color: var(--theme);
+	color: var(--theme-text);
+}

@@ -18,17 +18,14 @@ export default function Navbar() {
 						<strong>ACM</strong> Cyber
 					</span>
 				</Link>
-				<Link href="/about" className={styles.link}>
+				<Link href="/about" className={`${styles.link} ${pathname.startsWith("/about") ? styles.active : ""}`}>
 					About
-					{pathname.startsWith("/about") ? <span className={styles.active} /> : null}
 				</Link>
-				<Link href="/events" className={styles.link}>
+				<Link href="/events" className={`${styles.link} ${pathname.startsWith("/event") ? styles.active : ""}`}>
 					Events
-					{pathname.startsWith("/event") ? <span className={styles.active} /> : null}
 				</Link>
-				<Link href="/resources" className={styles.link}>
+				<Link href="/resources" className={`${styles.link} ${pathname.startsWith("/resources") ? styles.active : ""}`}>
 					Resources
-					{pathname.startsWith("/resources") ? <span className={styles.active} /> : null}
 				</Link>
 			</nav>
 		</header>

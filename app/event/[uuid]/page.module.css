@@ -27,11 +27,19 @@
 .blur {
 	z-index: -1;
 	filter: blur(40px);
-	opacity: 0.7;
+	animation: appear 2s 0.5s both;
 }
 @media (prefers-color-scheme: light) {
 	.blur {
 		display: none;
+	}
+}
+@keyframes appear {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 0.7;
 	}
 }
 
@@ -52,10 +60,17 @@
 	border-radius: 50px;
 	border: var(--card-border);
 	box-shadow: var(--card-shadow);
+	transition: background-color 0.2s;
+}
+.button:hover {
+	background-color: var(--card-hover);
 }
 
 .primary {
 	border-color: transparent;
 	background-color: var(--theme);
-	color: white;
+	color: var(--theme-text);
+}
+.primary:hover {
+	background-color: var(--theme-hover);
 }

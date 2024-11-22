@@ -6,6 +6,10 @@
 	border: var(--card-border);
 	box-shadow: var(--card-shadow);
 	white-space: nowrap;
+	transition: background-color 0.2s;
+}
+.card:hover {
+	background-color: var(--card-hover);
 }
 
 @media (min-width: 1200px) {

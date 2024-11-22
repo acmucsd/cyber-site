@@ -1,5 +1,5 @@
 .footer {
-	--background: #0a0a0a;
+	--background: #202020;
 	--foreground: #ededed;
 	background-color: var(--background);
 	display: flex;
@@ -10,4 +10,64 @@
 	width: 100%;
 	max-width: var(--max-width);
 	padding: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+.container > a {
+	display: block;
+	padding: 0 0.75rem;
+}
+
+.acm-logo,
+.youtube-logo,
+.discord-logo,
+.sdctf-logo {
+	width: 2.5rem;
+	height: 2.5rem;
+	background-color: white;
+	mask-size: contain;
+	transition: background 0.15s;
+}
+.acm-logo {
+	transition: background 1.4s;
+	mask-image: url("/assets/acm.svg");
+	background-size: 100px 200px;
+}
+.acm-logo:hover {
+	background: linear-gradient(
+		90deg,
+		hsl(0, 100%, 80%),
+		hsl(30, 100%, 80%),
+		hsl(60, 100%, 80%),
+		hsl(90, 100%, 80%),
+		hsl(120, 100%, 80%),
+		hsl(150, 100%, 80%),
+		hsl(180, 100%, 80%),
+		hsl(210, 100%, 80%),
+		hsl(240, 100%, 80%),
+		hsl(270, 100%, 80%),
+		hsl(300, 100%, 80%),
+		hsl(330, 100%, 80%),
+		hsl(360, 100%, 80%)
+	);
+	background-position: 150px 0;
+}
+.youtube-logo {
+	mask-image: url("/assets/youtube.svg");
+}
+.youtube-logo:hover {
+	background-color: #ff0033;
+}
+.discord-logo {
+	mask-image: url("/assets/discord.svg");
+}
+.discord-logo:hover {
+	background-color: #5662f6;
+}
+.sdctf-logo {
+	mask-image: url("/assets/sdctf.svg");
+}
+.sdctf-logo:hover {
+	background-color: #f19a3e;
 }

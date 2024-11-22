@@ -8,10 +8,25 @@
 	white-space: nowrap;
 }
 
+@media (min-width: 1200px) {
+	.large {
+		display: grid;
+		grid-template-areas:
+			"cover info"
+			"cover desc";
+		grid-template-columns: 2fr 1fr;
+		grid-template-rows: auto 1fr;
+	}
+}
+
 .cover {
 	aspect-ratio: 16 / 9;
 	width: 100%;
 	position: relative;
+	grid-area: cover;
+}
+.large .cover {
+	width: unset;
 }
 
 .info {
@@ -19,6 +34,7 @@
 	font-size: 14px;
 	display: flex;
 	flex-direction: column;
+	grid-area: info;
 }
 
 .info p {
@@ -29,4 +45,10 @@
 .title {
 	font-size: 18px;
 	font-weight: bold;
+}
+
+.description {
+	white-space: pre-wrap;
+	grid-area: desc;
+	padding: 10px;
 }

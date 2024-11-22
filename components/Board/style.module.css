@@ -9,23 +9,6 @@
 	padding: 20px;
 }
 
-.upcoming {
-	display: grid;
-	grid-template-columns: auto auto;
-	grid-template-rows: auto auto;
-	gap: 10px;
-}
-
-.upcoming :first-child {
-	grid-row: 1 / 3;
-}
-@media (max-width: 800px) {
-	.upcoming :first-child {
-		grid-row: unset;
-		grid-column: 1 / 3;
-	}
-}
-
 .years {
 	display: flex;
 	flex-wrap: wrap;
@@ -45,8 +28,8 @@
 	color: white;
 }
 
-.events {
+.members {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
 	gap: 10px;
 }

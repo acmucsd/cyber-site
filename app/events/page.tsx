@@ -11,12 +11,20 @@ export default async function EventsPage() {
 	const start = new Date(year, 7, 1);
 	const end = new Date(year + 1, 7, 1);
 
-	const events = await getAllCyberEvents(true);
+	const events = (await getAllCyberEvents(true)).filter(
+		(event) => new Date(event.end) >= start && new Date(event.start) <= end,
+	);
+
+	const now = new Date();
 
 	return (
 		<Events
 			startYear={year}
-			events={events.filter((event) => new Date(event.end) >= start && new Date(event.start) <= end)}
+			events={events.filter((event) => new Date(event.start) < now)}
+			upcoming={events.filter((event) => new Date(event.start) >= now).reverse()}
 		/>
 	);
 }
+
+// Ensure NextJS doesn't cache the events while building
+export const dynamic = "force-dynamic";

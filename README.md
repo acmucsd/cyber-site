@@ -8,18 +8,22 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Development
 
-First, ensure you have [Node](https://nodejs.org/en) installed.
+1. Ensure you have [Node](https://nodejs.org/en) installed.
 
-Install the dependencies:
+1. Install the dependencies:
 
-```shell
-$ npm install
-```
+   ```shell
+   $ npm install
+   ```
 
-Then run the development server:
+1. Populate `.env`. You'll need to get its contents from someone.
 
-```shell
-$ npm run dev
-```
+   TODO: Where should we put our `.env` file?
 
-Open <http://localhost:3000> with your browser to see the result.
+1. Then run the development server:
+
+   ```shell
+   $ npm run dev
+   ```
+
+   Open <http://localhost:3000> with your browser to see the result.

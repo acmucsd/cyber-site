@@ -8,9 +8,10 @@ const FIRST_YEAR = 2019;
 export type EventsProps = {
 	startYear: number;
 	events: PublicEvent[];
+	upcoming?: PublicEvent[];
 	archive?: boolean;
 };
-export default function Events({ startYear, events, archive = false }: EventsProps) {
+export default function Events({ startYear, events, upcoming = [], archive = false }: EventsProps) {
 	const currentYear = getCurrentAcademicYear();
 
 	const years = [];
@@ -21,11 +22,26 @@ export default function Events({ startYear, events, archive = false }: EventsPro
 			</Link>,
 		);
 	}
-	years.reverse();
 
 	return (
 		<div className={styles.container}>
-			<h2>{archive ? `Events in ${startYear}–${startYear + 1}` : "Past events"}</h2>
+			{upcoming.length === 1 ? (
+				<>
+					<h1>Coming up next</h1>
+					<EventCard event={upcoming[0]} large />
+				</>
+			) : upcoming.length > 0 ? (
+				<>
+					<h1>Upcoming events</h1>
+					<div className={styles.upcoming}>
+						<EventCard event={upcoming[0]} showDescription />
+						{upcoming.slice(1, 3).map((event) => (
+							<EventCard event={event} key={event.uuid} />
+						))}
+					</div>
+				</>
+			) : null}
+			<h1>{archive ? `Events in ${startYear}–${startYear + 1}` : "Past events"}</h1>
 			<div className={styles.years}>{years}</div>
 			<div className={styles.events}>
 				{events.map((event) => (
@@ -35,6 +51,3 @@ export default function Events({ startYear, events, archive = false }: EventsPro
 		</div>
 	);
 }
-
-// Ensure NextJS doesn't cache the events while building
-export const dynamic = "force-dynamic";

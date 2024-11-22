@@ -18,11 +18,11 @@ export type PublicEvent = {
 	foodItems: string | null;
 };
 
-const API_PATH = "https://api.acmucsd.com/api/v2/event";
+const apiPath = process.env.EVENTS_API_PATH;
 
 export async function getAllCyberEvents(reversed = false): Promise<PublicEvent[]> {
 	const response = await fetch(
-		`${API_PATH}?${new URLSearchParams({
+		`${apiPath}?${new URLSearchParams({
 			committee: "Cyber",
 			reverse: String(reversed),
 		})}`,
@@ -38,7 +38,7 @@ export async function getAllCyberEvents(reversed = false): Promise<PublicEvent[]
 }
 
 export async function getEvent(uuid: string): Promise<PublicEvent> {
-	const response = await fetch(`${API_PATH}/${uuid}`);
+	const response = await fetch(`${apiPath}/${uuid}`);
 	if (!response.ok) {
 		throw new Error(`HTTP ${response.status} error: ${response.url}`);
 	}

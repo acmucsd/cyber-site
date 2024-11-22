@@ -1,5 +1,5 @@
 import Board from "@/components/Board";
-import { getBoard } from "@/lib/board";
+import { getBoard } from "@/lib/api/BoardAPI";
 import { Metadata } from "next";
 import styles from "./page.module.css";
 

@@ -1,4 +1,4 @@
-import { BoardMember } from "@/lib/board";
+import { BoardMember } from "@/lib/api/BoardAPI";
 import Link from "next/link";
 import BoardCard from "../BoardCard";
 import styles from "./style.module.css";

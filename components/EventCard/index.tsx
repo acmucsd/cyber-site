@@ -1,4 +1,5 @@
-import { PublicEvent, rangeFormat } from "@/lib/events";
+import { PublicEvent } from "@/lib/api/EventsAPI";
+import { rangeFormat } from "@/lib/util/events";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./style.module.css";

@@ -1,5 +1,6 @@
 import IcalDownloadButton from "@/components/IcalDownloadButton";
-import { getEvent, PublicEvent, rangeFormat } from "@/lib/events";
+import { getEvent, PublicEvent } from "@/lib/api/EventsAPI";
+import { rangeFormat } from "@/lib/util/events";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";

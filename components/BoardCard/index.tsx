@@ -1,4 +1,4 @@
-import { BoardMember } from "@/lib/board";
+import { BoardMember } from "@/lib/api/BoardAPI";
 import Image from "next/image";
 import styles from "./style.module.css";
 

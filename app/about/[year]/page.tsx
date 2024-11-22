@@ -1,5 +1,5 @@
 import Board from "@/components/Board";
-import { getBoard } from "@/lib/board";
+import { getBoard } from "@/lib/api/BoardAPI";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import styles from "../page.module.css";
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: AboutPageProps): Promise<Meta
 	const { year } = await params;
 
 	return {
-		title: `ACM Cyber Board ${year}–${+year + 1} | ACM Cyber`,
+		title: `Board ${year}–${+year + 1} | ACM Cyber`,
 	};
 }
 

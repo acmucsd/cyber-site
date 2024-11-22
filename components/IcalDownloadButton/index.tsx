@@ -1,6 +1,6 @@
 "use client";
 
-import { PublicEvent } from "@/lib/events";
+import { PublicEvent } from "@/lib/api/EventsAPI";
 import { createEvent, EventAttributes } from "ics";
 import { AnchorHTMLAttributes, useEffect, useState } from "react";
 

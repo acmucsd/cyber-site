@@ -1,5 +1,6 @@
 import Events from "@/components/Events";
-import { getAllCyberEvents, getCurrentAcademicYear } from "@/lib/api/EventsAPI";
+import { getAllCyberEvents } from "@/lib/api/EventsAPI";
+import { getCurrentAcademicYear } from "@/lib/util/events";
 import { Metadata } from "next";
 
 // Cache the events for 1 hour

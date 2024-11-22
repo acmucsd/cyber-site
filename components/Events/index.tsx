@@ -1,4 +1,5 @@
-import { FIRST_YEAR, getCurrentAcademicYear, PublicEvent } from "@/lib/api/EventsAPI";
+import { PublicEvent } from "@/lib/api/EventsAPI";
+import { FIRST_YEAR, getCurrentAcademicYear } from "@/lib/util/events";
 import Link from "next/link";
 import EventCard from "../EventCard";
 import styles from "./style.module.css";

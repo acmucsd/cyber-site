@@ -35,8 +35,8 @@ export default function Home() {
 					</p>
 					<p>
 						We host a CTF every spring. Anyone around the world can compete, and no experience is required. We&rsquo;re
-						also looking for challenge developers. If you're interested in participating or helping, join our Discord
-						server and let us know!
+						also looking for challenge developers. If you&rsquo;re interested in participating or helping, join our
+						Discord server and let us know!
 					</p>
 					<div className={styles.buttons}>
 						<Link href="https://sdc.tf/" className={`${styles.button} ${styles.primary}`}>

@@ -16,7 +16,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
    $ npm install
    ```
 
-1. Populate `.env`. You'll need to get its contents from someone.
+1. Populate `.env`. You'll need to get its contents from someone in ACM.
 
    TODO: Where should we put our `.env` file?
 

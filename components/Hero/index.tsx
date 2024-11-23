@@ -8,7 +8,7 @@ export default function Hero() {
 			<div className={styles.blob} />
 			<div>
 				<h1>We are ACM Cyber</h1>
-				<p>UC San Diego&lsquo;s only cybersecurity club.</p>
+				<p>UC San Diego&rsquo;s only cybersecurity club.</p>
 				<div className={styles.buttons}>
 					<Link href="https://acmurl.com/cyber-discord" className={styles.button}>
 						Join our Discord

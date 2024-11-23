@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import Stat from "@/components/Stat";
+import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -20,8 +21,33 @@ export default function Home() {
 					<span className={styles.statDesc}>Something else</span>
 				</div>
 			</div>
-			{"Resources"}
-			{"event archive"}
+			<div>
+				<div className={styles.explainer}>
+					<h2>What&rsquo;s a CTF?</h2>
+					<p>
+						A Capture the Flag (CTF) is a competition where people work in teams to try to find a password, called a
+						&ldquo;flag,&rdquo; in as many challenges as they can.
+					</p>
+					<p>
+						Each challenge varies in difficulty, involves different skillsets, and often requires learning something new
+						along the way. Finding the flag can involve scouring the internet for clues, looking at hidden parts of
+						images, tricking a website into revealing the flag, or manipulating memory to fish it out.
+					</p>
+					<p>
+						We host a CTF every spring. Anyone around the world can compete, and no experience is required. We&rsquo;re
+						also looking for challenge developers. If you're interested in participating or helping, join our Discord
+						server and let us know!
+					</p>
+					<div className={styles.buttons}>
+						<Link href="https://sdc.tf/" className={`${styles.button} ${styles.primary}`}>
+							Learn more
+						</Link>
+						<Link href="https://acmurl.com/cyber-discord" className={styles.button}>
+							Join the Discord
+						</Link>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 }

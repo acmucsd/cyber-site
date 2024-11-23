@@ -2,6 +2,7 @@
 	--background: #202020;
 	--foreground: #ededed;
 	background-color: var(--background);
+	flex: none;
 	display: flex;
 	justify-content: center;
 }
@@ -59,8 +60,9 @@
 	opacity: 0;
 }
 .acm-logo:hover::after {
-	background: linear-gradient(90deg in oklab,
-		oklab(71.7531% 0.162851 0.067685) 0%, 
+	background: linear-gradient(
+		90deg in oklab,
+		oklab(71.7531% 0.162851 0.067685) 0%,
 		oklab(79.5766% 0.060439 0.121605) 18.75%,
 		oklab(77.1074% -0.138729 0.153649) 36.98%,
 		oklab(74.4551% -0.096795 -0.026325) 55.73%,

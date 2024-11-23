@@ -1,0 +1,29 @@
+.button {
+	display: inline-flex;
+	align-items: center;
+	min-height: 40px;
+	padding: 5px 15px;
+	gap: 5px;
+	border-radius: 20px;
+	border: var(--card-border);
+	box-shadow: var(--card-shadow);
+	transition: background-color 0.2s;
+}
+.button:hover {
+	background-color: var(--card-hover);
+}
+
+.primary {
+	border-color: transparent;
+	background-color: var(--theme);
+	color: var(--theme-text);
+}
+.primary:hover {
+	background-color: var(--theme-hover);
+}
+
+.small {
+	min-height: 30px;
+	padding: 0 10px;
+	border-radius: 15px;
+}

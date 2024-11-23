@@ -35,26 +35,3 @@
 	display: flex;
 	gap: 10px;
 }
-
-.button {
-	height: 40px;
-	display: flex;
-	align-items: center;
-	padding: 0 15px;
-	border-radius: 50px;
-	border: var(--card-border);
-	box-shadow: var(--card-shadow);
-	transition: background-color 0.2s;
-}
-.button:hover {
-	background-color: var(--card-hover);
-}
-
-.primary {
-	border-color: transparent;
-	background-color: var(--theme);
-	color: var(--theme-text);
-}
-.primary:hover {
-	background-color: var(--theme-hover);
-}

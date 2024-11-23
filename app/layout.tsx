@@ -18,8 +18,9 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
 	themeColor: [
-		{ media: "(prefers-color-scheme: light)", color: "#52bfbf" },
 		{ media: "(prefers-color-scheme: dark)", color: "#030712" },
+		// Discord uses the last color irrespective of color scheme
+		{ media: "(prefers-color-scheme: light)", color: "#52bfbf" },
 	],
 };
 

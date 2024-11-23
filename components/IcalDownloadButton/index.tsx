@@ -2,15 +2,13 @@
 
 import { PublicEvent } from "@/lib/api/EventsAPI";
 import { createEvent, EventAttributes } from "ics";
-import { AnchorHTMLAttributes, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import Button, { ButtonProps } from "../Button";
 
 export type IcalDownloadButtonProps = {
 	event: PublicEvent;
 };
-export default function IcalDownloadButton({
-	event,
-	...props
-}: IcalDownloadButtonProps & AnchorHTMLAttributes<HTMLAnchorElement>) {
+export default function IcalDownloadButton({ event, ...props }: IcalDownloadButtonProps & ButtonProps) {
 	const [url, setUrl] = useState("");
 
 	useEffect(() => {
@@ -43,5 +41,5 @@ export default function IcalDownloadButton({
 		};
 	}, [event]);
 
-	return <a href={url} download={`${event.title}.ics`} {...props} />;
+	return <Button href={url} download={`${event.title}.ics`} {...props} />;
 }

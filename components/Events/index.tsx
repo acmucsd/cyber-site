@@ -1,6 +1,6 @@
 import { PublicEvent } from "@/lib/api/EventsAPI";
 import { FIRST_YEAR, getCurrentAcademicYear } from "@/lib/util/events";
-import Link from "next/link";
+import Button from "../Button";
 import EventCard from "../EventCard";
 import styles from "./style.module.css";
 
@@ -16,9 +16,9 @@ export default function Events({ startYear, events, upcoming = [], archive = fal
 	const years = [];
 	for (let year = FIRST_YEAR; year <= currentYear; year++) {
 		years.push(
-			<Link className={`${styles.year} ${year === startYear ? styles.active : ""}`} href={`/events/${year}`} key={year}>
+			<Button href={`/events/${year}`} primary={year === startYear} small key={year}>
 				{year}–{year + 1}
-			</Link>,
+			</Button>,
 		);
 	}
 

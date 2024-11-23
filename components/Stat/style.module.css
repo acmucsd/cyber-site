@@ -1,0 +1,23 @@
+.number {
+	display: block;
+	color: var(--theme);
+	font-size: 48px;
+}
+
+.plus {
+	animation: appear 1s;
+}
+@keyframes appear {
+	0% {
+		opacity: 0;
+		text-shadow: 0 0 0 transparent;
+	}
+	50% {
+		opacity: 1;
+		text-shadow: 0 0 20px var(--theme);
+	}
+	100% {
+		opacity: 1;
+		text-shadow: 0 0 0 transparent;
+	}
+}

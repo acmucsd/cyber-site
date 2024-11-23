@@ -1,5 +1,6 @@
 import Events from "@/components/Events";
-import { getAllCyberEvents, getCurrentAcademicYear } from "@/lib/events";
+import { getAllCyberEvents } from "@/lib/api/EventsAPI";
+import { getCurrentAcademicYear } from "@/lib/util/events";
 import { Metadata } from "next";
 
 // Cache the events for 1 hour
@@ -23,8 +24,8 @@ export default async function EventsPage() {
 	return (
 		<Events
 			startYear={year}
-			events={events.filter((event) => new Date(event.start) < now)}
-			upcoming={events.filter((event) => new Date(event.start) >= now).reverse()}
+			events={events.filter((event) => new Date(event.end) < now)}
+			upcoming={events.filter((event) => new Date(event.end) >= now).reverse()}
 		/>
 	);
 }

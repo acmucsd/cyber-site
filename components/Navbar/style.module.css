@@ -1,19 +1,26 @@
 .navbar {
+	flex: none;
 	display: flex;
 	justify-content: center;
 	border-bottom: 3px solid var(--theme);
-	box-sizing: border-box;
-	height: 60px;
+	height: var(--navbar-height);
 	overflow: hidden;
+}
+@media (max-width: 470px) {
+	.navbar {
+		overflow: visible;
+		position: relative;
+		z-index: 5;
+	}
 }
 
 .container {
 	width: 100%;
 	max-width: var(--max-width);
 	display: flex;
-	padding: 0 20px;
 	font-size: 18px;
-	gap: 20px;
+	justify-content: space-between;
+	flex-wrap: wrap;
 }
 
 .logoWrapper {
@@ -21,21 +28,92 @@
 	align-items: center;
 	gap: 5px;
 	margin-right: auto;
+	white-space: pre;
+	padding: 0 20px;
+	position: relative;
+	z-index: 2;
 }
 
+.links {
+	display: flex;
+	justify-content: end;
+	gap: 20px;
+	padding: 0 20px;
+}
+@media (max-width: 470px) {
+	.links {
+		position: absolute;
+		height: var(--navbar-height);
+		background-color: var(--background);
+		border-bottom: 3px solid var(--theme);
+		width: 100%;
+		overflow: hidden;
+		transition:
+			height 0.2s,
+			padding-top 0.2s;
+	}
+	.link {
+		opacity: 0;
+		visibility: hidden;
+		transition:
+			opacity 0.2s,
+			visibility 0.2s;
+	}
+	.navbarOpen .links {
+		--extra-height: 40px;
+		height: calc(var(--extra-height) + var(--navbar-height) - 3px);
+		padding-top: var(--extra-height);
+	}
+	.navbarOpen .link {
+		opacity: 1;
+		visibility: visible;
+	}
+}
 .link {
 	display: flex;
 	align-items: center;
 	font-weight: 500;
 	position: relative;
 }
-.active {
-	background-color: var(--theme);
+.link::after {
+	content: "";
+	display: block;
 	position: absolute;
 	bottom: -10px;
 	left: -10px;
 	right: -10px;
 	height: 10px;
 	border-radius: 50px;
+	background-color: var(--theme);
 	filter: blur(10px);
+	visibility: hidden;
+	opacity: 0;
+	transition:
+		visibility 0.5s,
+		opacity 0.5s;
+}
+.active::after {
+	visibility: visible;
+	opacity: 1;
+}
+
+.mobileToggle {
+	display: none;
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	right: 0;
+	background: none;
+	border: none;
+	aspect-ratio: 1 / 1;
+	align-items: center;
+	justify-content: center;
+}
+@media (max-width: 470px) {
+	.mobileToggle {
+		display: flex;
+	}
+}
+.mobileToggle svg {
+	pointer-events: none;
 }

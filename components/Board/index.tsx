@@ -1,4 +1,4 @@
-import { BoardMember } from "@/lib/board";
+import { BoardMember } from "@/lib/api/BoardAPI";
 import Link from "next/link";
 import BoardCard from "../BoardCard";
 import styles from "./style.module.css";
@@ -7,12 +7,10 @@ export type BoardProps = {
 	startYear: number;
 	members: BoardMember[];
 	years: number[];
-	current?: boolean;
 };
-export default function Board({ startYear, members, years, current = false }: BoardProps) {
+export default function Board({ startYear, members, years }: BoardProps) {
 	return (
 		<>
-			<h1>{current ? "Our Team" : `Board in ${startYear}–${startYear + 1}`}</h1>
 			<div className={styles.years}>
 				{years.map((year) => (
 					<Link
@@ -26,7 +24,7 @@ export default function Board({ startYear, members, years, current = false }: Bo
 			</div>
 			<div className={styles.members}>
 				{members.map((member) => (
-					<BoardCard member={member} key={member.name} />
+					<BoardCard member={member} key={`${member.name}\n${member.position}`} />
 				))}
 			</div>
 		</>

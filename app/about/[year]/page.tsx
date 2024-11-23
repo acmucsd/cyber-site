@@ -1,5 +1,5 @@
 import Board from "@/components/Board";
-import { getBoard } from "@/lib/board";
+import { getBoard } from "@/lib/api/BoardAPI";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import styles from "../page.module.css";
@@ -15,13 +15,13 @@ export async function generateMetadata({ params }: AboutPageProps): Promise<Meta
 	const { year } = await params;
 
 	return {
-		title: `ACM Cyber Board ${year}–${+year + 1} | ACM Cyber`,
+		title: `Board ${year}–${+year + 1} | ACM Cyber`,
 	};
 }
 
 export default async function AboutPage({ params }: AboutPageProps) {
 	const { year } = await params;
-	const boardHistory = await getBoard();
+	const boardHistory = await getBoard(+year);
 	const entry = boardHistory.find(({ startYear }) => startYear === +year);
 	if (!entry) {
 		notFound();
@@ -31,6 +31,9 @@ export default async function AboutPage({ params }: AboutPageProps) {
 
 	return (
 		<main className={styles.container}>
+			<h1>
+				Board in {startYear}–{startYear + 1}
+			</h1>
 			<Board startYear={startYear} members={members} years={boardHistory.map(({ startYear }) => startYear)} />
 		</main>
 	);

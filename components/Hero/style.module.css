@@ -17,6 +17,7 @@
 	filter: blur(100px);
 	opacity: 0.5;
 	transform: rotate(-10deg);
+	z-index: -1;
 }
 
 .buttons {
@@ -28,6 +29,11 @@
 	display: block;
 	padding: 10px 15px;
 	border-radius: 30px;
+	box-shadow: var(--card-shadow);
 	background-color: var(--theme);
 	color: var(--theme-text);
+	transition: background-color 0.2s;
+}
+.button:hover {
+	background-color: var(--theme-hover);
 }

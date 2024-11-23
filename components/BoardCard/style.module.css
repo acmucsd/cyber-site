@@ -1,16 +1,44 @@
 .card {
 	display: flex;
-	flex-direction: column;
 	border-radius: 10px;
 	border: var(--card-border);
 	box-shadow: var(--card-shadow);
 	padding: 10px;
-	align-items: center;
-	text-align: center;
 	gap: 10px;
+}
+
+.photoWrapper {
+	flex: none;
+	width: 100px;
+	height: 100px;
+	position: relative;
+	background-color: var(--grey);
+	border-radius: 50%;
+	overflow: hidden;
 }
 
 .photo {
 	object-fit: cover;
-	border-radius: 50%;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 5px;
+}
+
+.name {
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.secondary {
+	color: var(--secondary);
+	font-size: 14px;
+}
+
+.links {
+	display: flex;
+	gap: 5px;
 }

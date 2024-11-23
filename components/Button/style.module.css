@@ -7,6 +7,7 @@
 	border-radius: 20px;
 	border: var(--card-border);
 	box-shadow: var(--card-shadow);
+	background-color: var(--background);
 	transition: background-color 0.2s;
 }
 .button:hover {

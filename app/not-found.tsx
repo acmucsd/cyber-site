@@ -4,6 +4,7 @@ import styles from "./not-found.module.css";
 export default function NotFound() {
 	return (
 		<div className={styles.container}>
+			<div className={styles.blob} />
 			<div className={styles.content}>
 				<h1>
 					<span className={styles.statusCode}>404</span> Page not found

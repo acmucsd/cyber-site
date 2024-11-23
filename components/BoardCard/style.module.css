@@ -12,7 +12,7 @@
 	width: 100px;
 	height: 100px;
 	position: relative;
-	background-color: var(--grey);
+	background-image: radial-gradient(at bottom right, color-mix(in srgb, 50% var(--theme), transparent), var(--theme));
 	border-radius: 50%;
 	overflow: hidden;
 }

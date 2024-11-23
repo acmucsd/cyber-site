@@ -25,22 +25,22 @@ export default function BoardCard({ member }: BoardCardProps) {
 				<div className={styles.links}>
 					{member.website ? (
 						<Link href={member.website}>
-							<Globe size={18} />
+							<Globe size={18} aria-hidden />
 						</Link>
 					) : null}
 					{member.linkedin ? (
 						<Link href={member.linkedin}>
-							<Linkedin size={18} />
+							<Linkedin size={18} aria-hidden />
 						</Link>
 					) : null}
 					{member.github ? (
 						<Link href={`https://github.com/${member.github}`}>
-							<GitHub size={18} />
+							<GitHub size={18} aria-hidden />
 						</Link>
 					) : null}
 					{member.email ? (
 						<Link href={`mailto:${member.email}`}>
-							<Mail size={18} />
+							<Mail size={18} aria-hidden />
 						</Link>
 					) : null}
 				</div>

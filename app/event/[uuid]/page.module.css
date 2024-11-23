@@ -56,7 +56,11 @@
 }
 
 .button {
-	padding: 10px 20px;
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	height: 40px;
+	padding: 0 20px;
 	border-radius: 50px;
 	border: var(--card-border);
 	box-shadow: var(--card-shadow);
@@ -64,6 +68,9 @@
 }
 .button:hover {
 	background-color: var(--card-hover);
+}
+.hasIcon {
+	padding-left: 15px;
 }
 
 .primary {

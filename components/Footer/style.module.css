@@ -75,7 +75,6 @@
 		oklab(71.7531% 0.162851 0.067685) 100%
 	);
 	background-size: 100px 30px;
-	/*background-repeat: repeat;*/
 	background-position: 0%;
 	animation: rainbow-spin forwards linear infinite 1.2s;
 }

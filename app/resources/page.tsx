@@ -19,7 +19,7 @@ export default async function Page() {
 			<ul>
 				{posts.map(({ path, published }) => (
 					<li key={path}>
-						<Link href={`/resources${path}`}>{path}</Link> {dateFormat.format(published)}
+						<Link href={path}>{path}</Link> {dateFormat.format(published)}
 					</li>
 				))}
 			</ul>

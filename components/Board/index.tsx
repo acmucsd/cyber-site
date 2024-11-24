@@ -12,11 +12,13 @@ export default function Board({ startYear, members, years }: BoardProps) {
 	return (
 		<>
 			<div className={styles.years}>
-				{years.map((year) => (
-					<Button href={`/about/${year}`} primary={year === startYear} small key={year}>
-						{year}–{year + 1}
-					</Button>
-				))}
+				{years
+					.map((year) => (
+						<Button href={`/about/${year}`} primary={year === startYear} small key={year}>
+							{year}–{year + 1}
+						</Button>
+					))
+					.reverse()}
 			</div>
 			<div className={styles.members}>
 				{members.map((member) => (

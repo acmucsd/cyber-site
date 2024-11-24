@@ -1,6 +1,7 @@
 ---
 published: 2024-11-24
-title: hello
+title: How to make a lockpick in DIB Makerspace
+description: howdy lmao
 ---
 
 Hello gamers! [Check this out](./writeups/sdctf2024.md) lol

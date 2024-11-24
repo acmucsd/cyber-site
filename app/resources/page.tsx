@@ -1,6 +1,11 @@
-import { dateFormat, getAllPosts, getPost, Post } from "@/lib/util/posts";
+import { PostCard } from "@/components/PostCard";
+import { getAllPosts, getPost, PublishedPost, urlTransform } from "@/lib/util/posts";
+import { readFile } from "fs/promises";
 import { Metadata } from "next";
 import Link from "next/link";
+import Markdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -10,19 +15,32 @@ export const metadata: Metadata = {
 export default async function Page() {
 	const posts = await getAllPosts()
 		.then((paths) => Promise.all(paths.map(getPost)))
-		.then((posts) => posts.filter((post): post is Post & { published: Date } => !!post.published));
+		.then((posts) => posts.filter((post): post is PublishedPost => !!post.published));
 	posts.sort((a, b) => +b.published - +a.published);
+
+	const content = await readFile("posts/index.md", "utf-8");
 
 	return (
 		<div className={styles.container}>
-			<p>We&rsquo;re still cooking!</p>
-			<ul>
-				{posts.map(({ path, published }) => (
-					<li key={path}>
-						<Link href={path}>{path}</Link> {dateFormat.format(published)}
-					</li>
+			<h1>Resources</h1>
+			<Markdown
+				remarkPlugins={[remarkGfm]}
+				rehypePlugins={[rehypeRaw]}
+				urlTransform={urlTransform}
+				remarkRehypeOptions={{ allowDangerousHtml: true }}
+				components={{
+					a: ({ href, ...props }) => (href !== undefined ? <Link href={href} {...props} /> : <a {...props} />),
+				}}
+			>
+				{content}
+			</Markdown>
+			<h2>Recent posts</h2>
+			<div className={styles.recent}>
+				{/* TODO: Cap the amount and link to an archive of all posts */}
+				{posts.map((post) => (
+					<PostCard key={post.path} post={post} className={styles.post} />
 				))}
-			</ul>
+			</div>
 		</div>
 	);
 }

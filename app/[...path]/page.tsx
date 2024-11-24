@@ -1,6 +1,8 @@
-import { dateFormat, getAllPosts, getPost } from "@/lib/util/posts";
+import { dateFormat, getAllPosts, getPost, urlTransform } from "@/lib/util/posts";
 import { Metadata } from "next";
+import Link from "next/link";
 import Markdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import styles from "./page.module.css";
 
@@ -31,13 +33,11 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
 			</div>
 			<Markdown
 				remarkPlugins={[remarkGfm]}
-				urlTransform={(url, key) => {
-					if (key === "href") {
-						if (url.endsWith(".md") && !/^https?:\/\//.test(url)) {
-							return url.replace(/\.md$/, "");
-						}
-					}
-					return url;
+				rehypePlugins={[rehypeRaw]}
+				urlTransform={urlTransform}
+				remarkRehypeOptions={{ allowDangerousHtml: true }}
+				components={{
+					a: ({ href, ...props }) => (href !== undefined ? <Link href={href} {...props} /> : <a {...props} />),
 				}}
 			>
 				{markdown}

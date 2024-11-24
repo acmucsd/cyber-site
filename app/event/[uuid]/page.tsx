@@ -1,7 +1,7 @@
 import Button from "@/components/Button";
 import IcalDownloadButton from "@/components/IcalDownloadButton";
 import { getEvent, PublicEvent } from "@/lib/api/EventsAPI";
-import { rangeFormat } from "@/lib/util/events";
+import { dateFormat } from "@/lib/util/events";
 import { Metadata } from "next";
 import Image from "next/image";
 import { Download } from "react-feather";
@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: EventPageProps): Promise<Meta
 
 	return {
 		title: `${event.title} | ACM Cyber`,
-		description: `${rangeFormat.formatRange(new Date(event.start), new Date(event.end))}\n${event.location}\n\n${event.description}`,
+		description: `${dateFormat.formatRange(new Date(event.start), new Date(event.end))}\n${event.location}\n\n${event.description}`,
 		openGraph: {
 			images: [event.cover],
 		},
@@ -55,7 +55,7 @@ export default async function EventPage({ params }: EventPageProps) {
 			<div className={styles.info}>
 				<h1>{event.title}</h1>
 				<div>
-					<p>{rangeFormat.formatRange(new Date(event.start), new Date(event.end))}</p>
+					<p>{dateFormat.formatRange(new Date(event.start), new Date(event.end))}</p>
 					<p>{event.location}</p>
 				</div>
 				<div className={styles.buttons}>

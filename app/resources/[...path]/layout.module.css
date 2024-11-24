@@ -4,4 +4,17 @@
 	max-width: var(--max-width);
 	margin: 0 auto;
 	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.container a[href] {
+	color: var(--theme);
+	font-weight: 500;
+	text-decoration: underline;
+	text-decoration-color: color-mix(in srgb, var(--theme) 30%, transparent);
+}
+.container a[href]:hover {
+	text-decoration-color: var(--theme);
 }

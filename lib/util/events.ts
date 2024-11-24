@@ -1,4 +1,4 @@
-export const rangeFormat = new Intl.DateTimeFormat("en-US", {
+export const dateFormat = new Intl.DateTimeFormat("en-US", {
 	dateStyle: "medium",
 	timeStyle: "short",
 	timeZone: "America/Los_Angeles",

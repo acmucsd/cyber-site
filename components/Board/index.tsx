@@ -1,6 +1,6 @@
 import { BoardMember } from "@/lib/api/BoardAPI";
-import Link from "next/link";
 import BoardCard from "../BoardCard";
+import Button from "../Button";
 import styles from "./style.module.css";
 
 export type BoardProps = {
@@ -12,15 +12,13 @@ export default function Board({ startYear, members, years }: BoardProps) {
 	return (
 		<>
 			<div className={styles.years}>
-				{years.map((year) => (
-					<Link
-						className={`${styles.year} ${year === startYear ? styles.active : ""}`}
-						href={`/about/${year}`}
-						key={year}
-					>
-						{year}–{year + 1}
-					</Link>
-				))}
+				{years
+					.map((year) => (
+						<Button href={`/about/${year}`} primary={year === startYear} small key={year}>
+							{year}–{year + 1}
+						</Button>
+					))
+					.reverse()}
 			</div>
 			<div className={styles.members}>
 				{members.map((member) => (

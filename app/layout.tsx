@@ -13,13 +13,14 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
 	title: "ACM Cyber at UCSD",
 	description:
-		"ACM [CYBER] at UC San Diego is an inclusive community of students interested in [CYBERSECURITY]. We promote community and education about [CYBERSECURITY] by hosting workshops, competitions, and socials throughout the year.",
+		"ACM Cyber at UC San Diego is an inclusive community of students interested in cybersecurity. We promote community and education about cybersecurity by hosting workshops, competitions, and socials throughout the year.",
 };
 
 export const viewport: Viewport = {
 	themeColor: [
-		{ media: "(prefers-color-scheme: light)", color: "#52bfbf" },
 		{ media: "(prefers-color-scheme: dark)", color: "#030712" },
+		// Discord uses the last color irrespective of color scheme
+		{ media: "(prefers-color-scheme: light)", color: "#52bfbf" },
 	],
 };
 

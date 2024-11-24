@@ -13,7 +13,7 @@
 	width: 600px;
 	height: 250px;
 	border-radius: 300px;
-	background-image: linear-gradient(hsl(170, 79%, 55%), hsl(190, 79%, 55%));
+	background-image: linear-gradient(90deg, hsl(170, 79%, 55%), hsl(190, 79%, 55%));
 	filter: blur(100px);
 	opacity: 0.5;
 	transform: rotate(-10deg);
@@ -25,25 +25,12 @@
 	margin-top: 10px;
 }
 
-.button {
-	display: flex;
-	align-items: center;
-	gap: 5px;
-	padding: 10px 15px;
+.hasIcon {
 	padding-right: 10px;
-	border-radius: 30px;
-	font-size: 18px;
-	box-shadow: var(--card-shadow);
-	background-color: var(--theme);
-	color: var(--theme-text);
-	transition: background-color 0.2s;
 }
-.button:hover {
-	background-color: var(--theme-hover);
-}
-.button svg {
+.hasIcon svg {
 	transition: transform 0.1s;
 }
-.button:hover svg {
+.hasIcon:hover svg {
 	transform: translateX(2px);
 }

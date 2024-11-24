@@ -1,6 +1,6 @@
+import Button from "@/components/Button";
 import Hero from "@/components/Hero";
 import Stat from "@/components/Stat";
-import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -39,12 +39,10 @@ export default function Home() {
 						Discord server and let us know!
 					</p>
 					<div className={styles.buttons}>
-						<Link href="https://sdc.tf/" className={`${styles.button} ${styles.primary}`}>
+						<Button href="https://sdc.tf/" primary>
 							Learn more
-						</Link>
-						<Link href="https://acmurl.com/cyber-discord" className={styles.button}>
-							Join the Discord
-						</Link>
+						</Button>
+						<Button href="https://acmurl.com/cyber-discord">Join the Discord</Button>
 					</div>
 				</div>
 			</div>

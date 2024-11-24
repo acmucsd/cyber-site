@@ -1,8 +1,44 @@
 .container {
 	flex: auto;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
+	width: 100%;
+	max-width: var(--max-width);
+	margin: 0 auto;
 	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.recent {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.container > :global(.sections) {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	gap: 10px;
+}
+@media (max-width: 400px) {
+	.container > :global(.sections) {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+.container > :global(.sections) > section {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.container > :global(.sections) a[href] {
+	color: var(--theme);
+	font-weight: 500;
+	text-decoration: underline;
+	text-decoration-color: color-mix(in srgb, var(--theme) 30%, transparent);
+}
+.container > :global(.sections) a[href]:hover {
+	text-decoration-color: var(--theme);
 }

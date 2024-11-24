@@ -41,6 +41,5 @@ export default async function AboutPage({ params }: AboutPageProps) {
 
 export async function generateStaticParams() {
 	const boardHistory = await getBoard();
-
 	return boardHistory.map(({ startYear }) => ({ year: String(startYear) }));
 }

@@ -1,5 +1,5 @@
 .wrapper {
-	height: calc(100vh - 60px);
+	height: calc(100vh - var(--navbar-height));
 	position: relative;
 	display: flex;
 	align-items: center;
@@ -13,10 +13,11 @@
 	width: 600px;
 	height: 250px;
 	border-radius: 300px;
-	background-image: linear-gradient(hsl(170, 79%, 55%), hsl(190, 79%, 55%));
+	background-image: linear-gradient(90deg, hsl(170, 79%, 55%), hsl(190, 79%, 55%));
 	filter: blur(100px);
 	opacity: 0.5;
 	transform: rotate(-10deg);
+	z-index: -1;
 }
 
 .buttons {
@@ -24,10 +25,12 @@
 	margin-top: 10px;
 }
 
-.button {
-	display: block;
-	padding: 10px 15px;
-	border-radius: 30px;
-	background-color: var(--theme);
-	color: var(--theme-text);
+.hasIcon {
+	padding-right: 10px;
+}
+.hasIcon svg {
+	transition: transform 0.1s;
+}
+.hasIcon:hover svg {
+	transform: translateX(2px);
 }

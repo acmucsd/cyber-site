@@ -15,9 +15,23 @@
 }
 
 .stat {
-	flex: 1 0 0;
+	flex: 200px 1 0;
 }
 
 .statDesc {
 	font-size: 24px;
+}
+
+.explainer {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	max-width: 600px;
+	padding: 20px;
+	line-height: 1.4;
+}
+
+.buttons {
+	display: flex;
+	gap: 10px;
 }

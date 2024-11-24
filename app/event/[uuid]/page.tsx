@@ -1,9 +1,10 @@
+import Button from "@/components/Button";
 import IcalDownloadButton from "@/components/IcalDownloadButton";
 import { getEvent, PublicEvent } from "@/lib/api/EventsAPI";
 import { rangeFormat } from "@/lib/util/events";
 import { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { Download } from "react-feather";
 import styles from "./page.module.css";
 
 type EventPageProps = {
@@ -58,13 +59,14 @@ export default async function EventPage({ params }: EventPageProps) {
 					<p>{event.location}</p>
 				</div>
 				<div className={styles.buttons}>
-					<Link className={`${styles.button} ${styles.primary}`} href="https://acmurl.com/cyber-discord">
+					<Button href="https://acmurl.com/cyber-discord" primary>
 						Join Discord for updates
-					</Link>
-					<Link className={styles.button} href={generateGoogleCalendarUrl(event)} target="_blank">
+					</Button>
+					<Button href={generateGoogleCalendarUrl(event)} target="_blank">
 						Add to Google Calendar
-					</Link>
-					<IcalDownloadButton event={event} className={styles.button}>
+					</Button>
+					<IcalDownloadButton event={event} className={styles.hasIcon}>
+						<Download size={20} aria-hidden />
 						Download .ics file
 					</IcalDownloadButton>
 				</div>

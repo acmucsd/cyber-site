@@ -1,7 +1,8 @@
 .footer {
-	--background: #202020;
+	--background: #010309;
 	--foreground: #ededed;
 	background-color: var(--background);
+	flex: none;
 	display: flex;
 	justify-content: center;
 }
@@ -63,7 +64,8 @@
 	top: 0;
 	left: 0;
 	opacity: 0;
-	background: repeating-linear-gradient(90deg in oklab,
+	background: repeating-linear-gradient(
+		90deg in oklab,
 		oklab(71.7531% 0.162851 0.067685) 0%, 
 		oklab(79.5766% 0.060439 0.121605) 18.75%,
 		oklab(77.1074% -0.138729 0.153649) 36.98%,

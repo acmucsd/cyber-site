@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: AboutPageProps): Promise<Meta
 
 export default async function AboutPage({ params }: AboutPageProps) {
 	const { year } = await params;
-	const boardHistory = await getBoard();
+	const boardHistory = await getBoard(+year);
 	const entry = boardHistory.find(({ startYear }) => startYear === +year);
 	if (!entry) {
 		notFound();
@@ -31,6 +31,9 @@ export default async function AboutPage({ params }: AboutPageProps) {
 
 	return (
 		<main className={styles.container}>
+			<h1>
+				Board in {startYear}–{startYear + 1}
+			</h1>
 			<Board startYear={startYear} members={members} years={boardHistory.map(({ startYear }) => startYear)} />
 		</main>
 	);

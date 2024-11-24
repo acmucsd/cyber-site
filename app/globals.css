@@ -3,21 +3,24 @@
 	--theme-hover: #68dede; /* CTF cyan 40 */
 	--theme-text: #030712;
 	--max-width: 1200px;
+	--navbar-height: 60px;
 
 	--background: #ffffff;
 	--foreground: #171717;
+	--secondary: color-mix(in srgb, var(--foreground) 60%, transparent);
 	--card-border: 1px solid rgba(0, 0, 0, 0.1);
 	--card-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-	--card-hover: rgba(0, 0, 0, 0.05);
+	--card-hover: color-mix(in srgb, black 5%, var(--background));
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
 		--background: #030712;
 		--foreground: #ededed;
+		--secondary: color-mix(in srgb, var(--foreground) 60%, transparent);
 		--card-border: 1px solid color-mix(in srgb, var(--theme) 50%, transparent);
 		--card-shadow: none;
-		--card-hover: color-mix(in srgb, var(--theme) 20%, transparent);
+		--card-hover: color-mix(in srgb, var(--theme) 20%, var(--background));
 	}
 }
 

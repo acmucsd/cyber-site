@@ -32,7 +32,10 @@ export default function Stat({ count, duration }: StatProps) {
 			window.requestAnimationFrame(paint);
 		};
 		const observer = new IntersectionObserver(
-			() => {
+			([{ intersectionRatio }]) => {
+				if (intersectionRatio < 0.5) {
+					return;
+				}
 				startTime = Date.now();
 				paint();
 				observer.disconnect();

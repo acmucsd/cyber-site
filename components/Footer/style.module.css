@@ -36,6 +36,13 @@
 @keyframes rainbow-spin {
 	0% {
 		background-position: 0%;
+	}
+	100% {
+		background-position: 200px 0;
+	}
+}
+@keyframes fade-in-and-out {
+	0% {
 		opacity: 0;
 	}
 	20% {
@@ -45,7 +52,6 @@
 		opacity: 1;
 	}
 	100% {
-		background-position: 600% 0;
 		opacity: 0;
 	}
 }
@@ -57,9 +63,7 @@
 	top: 0;
 	left: 0;
 	opacity: 0;
-}
-.acm-logo:hover::after {
-	background: linear-gradient(90deg in oklab,
+	background: repeating-linear-gradient(90deg in oklab,
 		oklab(71.7531% 0.162851 0.067685) 0%, 
 		oklab(79.5766% 0.060439 0.121605) 18.75%,
 		oklab(77.1074% -0.138729 0.153649) 36.98%,
@@ -68,8 +72,13 @@
 		oklab(62.9435% 0.05375 -0.201375),
 		oklab(71.7531% 0.162851 0.067685) 100%
 	);
-	background-size: 100px 200px;
-	animation: rainbow-spin forwards linear 1 1.5s;
+	background-size: 100px 30px;
+	/*background-repeat: repeat;*/
+	background-position: 0%;
+	animation: rainbow-spin forwards linear infinite 1.2s;
+}
+.acm-logo:hover::after {
+	animation: rainbow-spin forwards linear infinite 1.2s, fade-in-and-out 1.5s linear 1 forwards;
 }
 .youtube-logo {
 	mask-image: url("/assets/youtube.svg");

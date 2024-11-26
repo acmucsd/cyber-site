@@ -1,6 +1,11 @@
 import Button from "@/components/Button";
 import Hero from "@/components/Hero";
 import Stat from "@/components/Stat";
+import Testimonial from "@/components/Testimonial";
+import GetInvolved from "@/public/assets/testimonials/getinvolved.jpg";
+import Nick from "@/public/assets/testimonials/nick.jpg";
+import Sebastian from "@/public/assets/testimonials/sebastianprehn.jpg";
+import Thomas from "@/public/assets/testimonials/thomas-dick.jpg";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -44,6 +49,38 @@ export default function Home() {
 						</Button>
 						<Button href="https://acmurl.com/cyber-discord">Join the Discord</Button>
 					</div>
+				</div>
+			</div>
+			<div className={styles.testimonialsWrapper}>
+				<h2>Testimonials</h2>
+				<div className={styles.testimonials}>
+					<Testimonial
+						photo={Sebastian}
+						name="Sebastian Larsen Prehn"
+						role="Passionate Jugger"
+						comment="ACM Cyber seems to be doing a lot of nice work! I'm very envious that I have no way of attending their many events, as they seem to be doing a lot of interesting talks and generally share their passions about cybersecurity (and obviously physical pentesting too)!"
+						url="https://bsky.app/profile/sebastianprehn.dk/post/3lazn26uzjk27"
+					/>
+					<Testimonial
+						photo={GetInvolved}
+						name="Get Involved"
+						role="UCSD Center for Student Involvement"
+						comment="ACM Cyber is an organization designed to expand the knowledge of cybersecurity for all members of the UCSD undergraduate community."
+						url="https://www.instagram.com/getinvolveducsd/p/CPUAGoJnpr5/"
+					/>
+					<Testimonial
+						photo={Nick}
+						name="Nicholas Petrone"
+						role="ACM Cyber President"
+						comment="the president? i love that guy"
+					/>
+					<Testimonial
+						photo={Thomas}
+						name="Thomas Dickerson"
+						role="Co-Founder"
+						comment="Joe"
+						url="https://bsky.app/profile/elfprince13.mumak.app/post/3layg5ybxzc2q"
+					/>
 				</div>
 			</div>
 		</div>

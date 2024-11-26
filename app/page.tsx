@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import Stat from "@/components/Stat";
 import Testimonial from "@/components/Testimonial";
 import GetInvolved from "@/public/assets/testimonials/getinvolved.jpg";
+import Loris from "@/public/assets/testimonials/loris.jpg";
 import Nick from "@/public/assets/testimonials/nick.jpg";
 import Sebastian from "@/public/assets/testimonials/sebastianprehn.jpg";
 import Thomas from "@/public/assets/testimonials/thomas-dick.jpg";
@@ -67,6 +68,13 @@ export default function Home() {
 						role="UCSD Center for Student Involvement"
 						comment="ACM Cyber is an organization designed to expand the knowledge of cybersecurity for all members of the UCSD undergraduate community."
 						url="https://www.instagram.com/getinvolveducsd/p/CPUAGoJnpr5/"
+					/>
+					<Testimonial
+						photo={Loris}
+						name="Loris D'Antoni"
+						role="A Professor"
+						comment="Micro mobility thieves"
+						url="https://twitter.com/lorisdanto/status/1857314160918307037"
 					/>
 					<Testimonial
 						photo={Nick}

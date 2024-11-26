@@ -1,23 +1,16 @@
 .wrapper {
-	height: calc(100vh - var(--navbar-height));
+	min-height: calc(100vh - var(--navbar-height));
 	position: relative;
 	display: flex;
 	align-items: center;
 	padding: 20px;
 }
 
-.blob {
-	position: absolute;
-	right: -100px;
-	top: calc(50vh - 150px);
-	left: 500px;
-	height: 250px;
-	border-radius: 300px;
-	background-image: linear-gradient(90deg, hsl(170, 79%, 55%), hsl(190, 79%, 55%));
-	filter: blur(100px);
-	opacity: 0.5;
-	transform: rotate(-10deg);
-	z-index: -1;
+@media (max-width: 1000px) {
+	.wrapper {
+		flex-direction: column;
+		min-height: unset;
+	}
 }
 
 .content {
@@ -31,7 +24,6 @@
 	display: flex;
 	flex-direction: column;
 	font-size: 48px;
-	line-height: 1;
 }
 
 .weAre {
@@ -41,6 +33,7 @@
 .acmCyber {
 	padding: 10px 0;
 	margin: -10px 0;
+	line-height: 0.9;
 	font-size: 80px;
 	background-size: 400%;
 	background-position-x: right;

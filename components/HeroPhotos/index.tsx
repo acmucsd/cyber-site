@@ -31,26 +31,29 @@ const photos: HeroPhoto[] = [
 	{ image: UnoPlayer, position: { x: 12, y: 14, size: 2 } },
 	{ image: RedRoom, position: { x: 14, y: 11, size: 2 } },
 	{ image: Hike, position: { x: 14, y: 7, size: 4 } },
-];
+].reverse();
 
 export default function HeroPhotos() {
 	return (
-		<div className={styles.gridWrapper}>
-			<div className={styles.grid}>
-				{photos.map((photo, i) => (
-					<div
-						key={photo.image.src}
-						className={styles.imageWrapper}
-						style={{
-							gridRow: `${photo.position.y + 1} / ${photo.position.y + 1 + photo.position.size}`,
-							gridColumn: `${photo.position.x + 1} / ${photo.position.x + 1 + photo.position.size}`,
-							animationDelay: `${(photos.length - i) * 0.1 + 0.5}s`,
-							animationDuration: `${(photos.length - i) * 0.05 + 1}s`,
-						}}
-					>
-						<Image src={photo.image} alt="" fill />
-					</div>
-				))}
+		<div className={styles.blobWrapper}>
+			<div className={styles.blob} />
+			<div className={styles.gridWrapper}>
+				<div className={styles.grid}>
+					{photos.map(({ image, position }, i) => (
+						<div
+							key={image.src}
+							className={styles.imageWrapper}
+							style={{
+								gridRow: `${position.y + 1} / ${position.y + 1 + position.size}`,
+								gridColumn: `${position.x + 1} / ${position.x + 1 + position.size}`,
+								animationDelay: `${i * 0.1 + 0.5}s`,
+								animationDuration: `${i * 0.05 + 1}s`,
+							}}
+						>
+							<Image src={image} alt="TODO" fill />
+						</div>
+					))}
+				</div>
 			</div>
 		</div>
 	);

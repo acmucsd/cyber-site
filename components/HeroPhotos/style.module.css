@@ -1,9 +1,35 @@
+.blobWrapper {
+	flex: auto;
+	display: flex;
+	position: relative;
+}
+
+@media (max-width: 1000px) {
+	.blobWrapper {
+		align-self: stretch;
+	}
+}
+
+.blob {
+	position: absolute;
+	right: -150px;
+	top: 50%;
+	left: 0;
+	height: 250px;
+	border-radius: 300px;
+	background-image: linear-gradient(90deg, hsl(170, 79%, 55%), hsl(190, 79%, 55%));
+	filter: blur(100px);
+	opacity: 0.5;
+	transform: rotate(-10deg) translateY(-50%);
+	z-index: -1;
+}
+
 .gridWrapper {
 	flex: auto;
 	display: flex;
 	overflow: hidden;
 	padding: 40px;
-	margin: -20px;
+	margin: -40px;
 }
 
 .grid {
@@ -14,6 +40,12 @@
 	gap: 15px;
 	aspect-ratio: 1 / 1;
 	transform: translateX(2.5%) rotate(-45deg);
+}
+@media (max-width: 1000px) {
+	.grid {
+		max-width: calc(100vh - 300px);
+		margin: 0 auto;
+	}
 }
 
 .imageWrapper {

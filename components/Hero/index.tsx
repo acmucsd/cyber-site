@@ -6,7 +6,6 @@ import styles from "./style.module.css";
 export default function Hero() {
 	return (
 		<div className={styles.wrapper}>
-			<div className={styles.blob} />
 			<div className={styles.content}>
 				<h1 className={styles.big}>
 					<span className={styles.weAre}>We are</span>{" "}

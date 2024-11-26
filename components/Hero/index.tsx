@@ -1,5 +1,6 @@
 import { ChevronRight } from "react-feather";
 import Button from "../Button";
+import HeroPhotos from "../HeroPhotos";
 import styles from "./style.module.css";
 
 export default function Hero() {
@@ -21,6 +22,7 @@ export default function Hero() {
 					</Button>
 				</div>
 			</div>
+			<HeroPhotos />
 		</div>
 	);
 }

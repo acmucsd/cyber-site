@@ -1,0 +1,40 @@
+.gridWrapper {
+	flex: auto;
+	display: flex;
+	overflow: hidden;
+	padding: 40px;
+	margin: -20px;
+}
+
+.grid {
+	flex: auto;
+	display: grid;
+	grid-template-columns: repeat(18, 1fr);
+	grid-template-rows: repeat(18, 1fr);
+	gap: 15px;
+	aspect-ratio: 1 / 1;
+	transform: translateX(2.5%) rotate(-45deg);
+}
+
+.imageWrapper {
+	position: relative;
+	animation: appear backwards;
+}
+
+.imageWrapper img {
+	border-radius: 15px;
+}
+
+@keyframes appear {
+	from {
+		filter: blur(30px);
+		opacity: 0;
+		transform: scale(1.2);
+	}
+
+	to {
+		filter: blur(0);
+		opacity: 1;
+		transform: scale(1);
+	}
+}

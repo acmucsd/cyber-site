@@ -1,23 +1,101 @@
 .wrapper {
-	height: calc(100vh - var(--navbar-height));
+	min-height: calc(100vh - var(--navbar-height));
 	position: relative;
 	display: flex;
 	align-items: center;
 	padding: 20px;
 }
 
-.blob {
-	position: absolute;
-	right: -100px;
-	top: calc(50vh - 180px);
-	width: 600px;
-	height: 250px;
-	border-radius: 300px;
-	background-image: linear-gradient(90deg, hsl(170, 79%, 55%), hsl(190, 79%, 55%));
-	filter: blur(100px);
-	opacity: 0.5;
-	transform: rotate(-10deg);
-	z-index: -1;
+@media (max-width: 1000px) {
+	.wrapper {
+		flex-direction: column;
+		min-height: unset;
+	}
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	font-size: 18px;
+}
+
+.big {
+	display: flex;
+	flex-direction: column;
+	font-size: 48px;
+}
+
+.weAre {
+	animation: appear 1s;
+}
+
+.acmCyber {
+	padding: 10px 0;
+	margin: -10px 0;
+	line-height: 0.9;
+	font-size: 80px;
+	background-size: 400%;
+	background-position-x: right;
+	animation: acm-cyber-appear 2s 0.2s backwards;
+}
+
+@keyframes acm-cyber-appear {
+	from,
+	to {
+		color: transparent;
+		-webkit-background-clip: text;
+		background-clip: text;
+		background-image: linear-gradient(
+			to left,
+			transparent,
+			transparent,
+			var(--theme),
+			var(--foreground),
+			var(--foreground)
+		);
+	}
+	from {
+		background-position-x: right;
+	}
+	to {
+		background-position-x: left;
+	}
+}
+
+.cyber {
+	background-size: 300%;
+	animation: cyber-blue 1s 3s forwards;
+}
+
+@keyframes cyber-blue {
+	from,
+	to {
+		color: transparent;
+		-webkit-background-clip: text;
+		background-clip: text;
+		background-image: linear-gradient(to right, var(--foreground), var(--foreground), var(--theme), var(--theme));
+	}
+	from {
+		background-position-x: left;
+	}
+	to {
+		background-position-x: right;
+	}
+}
+
+.tagline,
+.buttons {
+	animation: appear 1s 1.5s backwards;
+}
+
+@keyframes appear {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
 }
 
 .buttons {
@@ -26,7 +104,7 @@
 }
 
 .hasIcon {
-	padding-right: 10px;
+	padding-right: 0.5em;
 }
 .hasIcon svg {
 	transition: transform 0.1s;

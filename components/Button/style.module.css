@@ -1,10 +1,10 @@
 .button {
 	display: inline-flex;
 	align-items: center;
-	min-height: 40px;
-	padding: 5px 15px;
-	gap: 5px;
-	border-radius: 20px;
+	min-height: 2.5em;
+	padding: 0.25em 1em;
+	gap: 0.5em;
+	border-radius: 1.25em;
 	border: var(--card-border);
 	box-shadow: var(--card-shadow);
 	background-color: var(--background);
@@ -24,7 +24,7 @@
 }
 
 .small {
-	min-height: 30px;
-	padding: 0 10px;
-	border-radius: 15px;
+	min-height: 2em;
+	padding: 0 0.75em;
+	border-radius: 1em;
 }

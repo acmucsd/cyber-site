@@ -8,3 +8,22 @@
 	gap: 10px;
 	padding: 20px;
 }
+
+.container p {
+	line-height: 1.5;
+}
+
+.link {
+	color: var(--theme);
+	text-decoration: underline;
+	text-decoration-color: color-mix(in srgb, var(--theme) 30%, transparent);
+}
+.link:hover {
+	text-decoration-color: var(--theme);
+}
+
+.buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}

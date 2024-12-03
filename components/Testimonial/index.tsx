@@ -13,12 +13,12 @@ export default function Testimonial({ photo, name, role, comment, url }: Testimo
 	const content = (
 		<>
 			<Image src={photo} alt={`Photo of ${name}`} width={80} height={80} className={styles.photo} />
-			<div className={styles.info}>
-				<div>
+			<div className={styles.side}>
+				<p className={styles.comment}>{comment}</p>
+				<div className={styles.info}>
 					<p className={styles.name}>{name}</p>
 					<p className={styles.role}>{role}</p>
 				</div>
-				<p>{comment}</p>
 			</div>
 		</>
 	);

@@ -25,7 +25,7 @@ export default async function About() {
 				include making cybersecurity fun and accessible through workshops, competitions, networking events, and more, as
 				you explore the complex cybersecurity landscape.
 			</p>
-			<h2>Join us</h2>
+			<h2>Join Us</h2>
 			<p>
 				ACM is a members-first community. There is no fee or application to become a member, and everyone is welcome,
 				regardless of experience. Simply create an account on the{" "}

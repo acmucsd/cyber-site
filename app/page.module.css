@@ -46,5 +46,6 @@
 .testimonials {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-	gap: 10px;
+	align-items: start;
+	gap: 20px;
 }

@@ -1,14 +1,6 @@
 .card {
 	display: flex;
-	border-radius: 10px;
-	padding: 10px;
-	gap: 10px;
-	border: var(--card-border);
-	box-shadow: var(--card-shadow);
-	transition: background-color 0.2s;
-}
-.card[href]:hover {
-	background-color: var(--card-hover);
+	gap: 20px;
 }
 
 .photo {
@@ -16,10 +8,42 @@
 	object-fit: cover;
 }
 
-.info {
+.side {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
+}
+
+.comment {
+	display: flex;
+	border-radius: 10px;
+	padding: 10px;
+	background-color: var(--background);
+	border: var(--card-border);
+	filter: drop-shadow(var(--card-shadow));
+	transition: background-color 0.2s;
+	position: relative;
+}
+.card[href]:hover .comment,
+.card[href]:hover .comment::before {
+	background-color: var(--card-hover);
+}
+
+.comment::before {
+	content: "";
+	position: absolute;
+	padding: 6px;
+	margin: -6px;
+	border-bottom-left-radius: 4px;
+	border-top-right-radius: 10px;
+	border: var(--card-border);
+	border-right-color: transparent;
+	border-top-color: transparent;
+	background-color: var(--background);
+	transition: background-color 0.2s;
+	transform: rotate(45deg);
+	left: -1px;
+	top: 20px;
 }
 
 .name {

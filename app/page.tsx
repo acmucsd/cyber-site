@@ -29,6 +29,21 @@ export default function Home() {
 			</div>
 			<div>
 				<div className={styles.explainer}>
+					<h2>Join ACM Cyber</h2>
+					<p>
+						To become a member of ACM Cyber, simply attend our events! There's no application or fee associated with
+						membership. Everyone is welcome, regardless of experience level.
+					</p>
+					<div className={styles.buttons}>
+						<Button href="https://members.acmucsd.com/" primary>
+							Become a member
+						</Button>
+						<Button href="/events">View events</Button>
+					</div>
+				</div>
+			</div>
+			<div>
+				<div className={styles.explainer}>
 					<h2>What&rsquo;s a CTF?</h2>
 					<p>
 						A Capture the Flag (CTF) is a competition where people work in teams to try to find a password, called a
@@ -73,8 +88,8 @@ export default function Home() {
 						photo={Loris}
 						name="Loris D'Antoni"
 						role="A Professor"
-						comment="Micro mobility thieves"
-						url="https://twitter.com/lorisdanto/status/1857314160918307037"
+						comment="Who's the target audience here?"
+						url="https://twitter.com/lorisdanto/status/1857310017222823938"
 					/>
 					<Testimonial
 						photo={Nick}

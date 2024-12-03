@@ -45,7 +45,8 @@ export default async function About() {
 				for any applications-related questions or updates.
 			</p>
 			<p>
-				We are always looking for challenge developers for SDCTF. If you're interested, message the president on the{" "}
+				We are always looking for challenge developers for SDCTF. If you&rsquo;re interested, message the president on
+				the{" "}
 				<Link href="https://acmurl.com/cyber-discord" className={styles.link}>
 					ACM Cyber Discord
 				</Link>

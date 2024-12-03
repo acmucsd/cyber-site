@@ -31,8 +31,8 @@ export default function Home() {
 				<div className={styles.explainer}>
 					<h2>Join ACM Cyber</h2>
 					<p>
-						To become a member of ACM Cyber, simply attend our events! There's no application or fee associated with
-						membership. Everyone is welcome, regardless of experience level.
+						To become a member of ACM Cyber, simply attend our events! There&rsquo;s no application or fee associated
+						with membership. Everyone is welcome, regardless of experience level.
 					</p>
 					<div className={styles.buttons}>
 						<Button href="https://members.acmucsd.com/" primary>

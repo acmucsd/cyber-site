@@ -2,8 +2,10 @@ import { dateFormat, getAllPosts, getPost, urlTransform } from "@/lib/util/posts
 import { Metadata } from "next";
 import Link from "next/link";
 import Markdown from "react-markdown";
+import rehypeHighlight from "rehype-highlight";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
+import "./nord.css";
 import styles from "./page.module.css";
 
 type ResourcePageProps = {
@@ -24,24 +26,42 @@ export async function generateMetadata({ params }: ResourcePageProps): Promise<M
 export default async function ResourcePage({ params }: ResourcePageProps) {
 	const { path } = await params;
 	const { markdown, title, published } = await getPost(path.join("/"));
+	const isInternal = path[0] === "internal";
 
 	return (
 		<>
-			<div>
-				{title ? <h1>{title}</h1> : null}
-				<p className={styles.publishDate}>{published ? `Posted ${dateFormat.format(published)}.` : "Unpublished."}</p>
+			<div className={styles.header}>
+				{title ? <h1 className={styles.heading}>{title}</h1> : null}
+				<p className={styles.publishDate}>
+					{published
+						? `${isInternal ? "Created" : "Posted"} ${dateFormat.format(published)}.`
+						: isInternal
+							? "Undated."
+							: "Unpublished."}
+				</p>
 			</div>
-			<Markdown
-				remarkPlugins={[remarkGfm]}
-				rehypePlugins={[rehypeRaw]}
-				urlTransform={urlTransform}
-				remarkRehypeOptions={{ allowDangerousHtml: true }}
-				components={{
-					a: ({ href, ...props }) => (href !== undefined ? <Link href={href} {...props} /> : <a {...props} />),
-				}}
-			>
-				{markdown}
-			</Markdown>
+			<div className={styles.content}>
+				<Markdown
+					remarkPlugins={[remarkGfm]}
+					rehypePlugins={[rehypeRaw, rehypeHighlight]}
+					urlTransform={urlTransform}
+					remarkRehypeOptions={{ allowDangerousHtml: true }}
+					components={{
+						a: ({ href, ...props }) => (href !== undefined ? <Link href={href} {...props} /> : <a {...props} />),
+						iframe: ({ src }) => (
+							// Ignore all other props
+							<iframe
+								src={src}
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+								referrerPolicy="strict-origin-when-cross-origin"
+								allowFullScreen
+							/>
+						),
+					}}
+				>
+					{markdown}
+				</Markdown>
+			</div>
 		</>
 	);
 }

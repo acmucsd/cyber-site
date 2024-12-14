@@ -9,3 +9,14 @@
 	grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
 	gap: 10px;
 }
+
+.boardPhotoWrapper {
+	position: relative;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+}
+
+.boardPhoto {
+	border-radius: 10px;
+	object-fit: cover;
+}

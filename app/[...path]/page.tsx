@@ -48,6 +48,15 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
 					remarkRehypeOptions={{ allowDangerousHtml: true }}
 					components={{
 						a: ({ href, ...props }) => (href !== undefined ? <Link href={href} {...props} /> : <a {...props} />),
+						iframe: ({ src }) => (
+							// Ignore all other props
+							<iframe
+								src={src}
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+								referrerPolicy="strict-origin-when-cross-origin"
+								allowFullScreen
+							/>
+						),
 					}}
 				>
 					{markdown}

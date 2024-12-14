@@ -2,6 +2,7 @@ import { dateFormat, getAllPosts, getPost, urlTransform } from "@/lib/util/posts
 import { Metadata } from "next";
 import Link from "next/link";
 import Markdown from "react-markdown";
+import rehypeHighlight from "rehype-highlight";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
 import styles from "./page.module.css";
@@ -34,7 +35,7 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
 			<div className={styles.content}>
 				<Markdown
 					remarkPlugins={[remarkGfm]}
-					rehypePlugins={[rehypeRaw]}
+					rehypePlugins={[rehypeRaw, rehypeHighlight]}
 					urlTransform={urlTransform}
 					remarkRehypeOptions={{ allowDangerousHtml: true }}
 					components={{

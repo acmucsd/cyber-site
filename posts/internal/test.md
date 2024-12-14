@@ -12,3 +12,32 @@ and this is an [external url](https://github.com/acmucsd/hack-website/commits/ma
 const wow = 3;
 console.log("what");
 ```
+
+```tsx
+export default async function ResourcePage({ params }: ResourcePageProps) {
+	const { path } = await params;
+	const { markdown, title, published } = await getPost(path.join("/"));
+
+	return (
+		<>
+			<div className={styles.header}>
+				{title ? <h1 className={styles.heading}>{title}</h1> : null}
+				<p className={styles.publishDate}>{published ? `Posted ${dateFormat.format(published)}.` : "Unpublished."}</p>
+			</div>
+			<div className={styles.content}>
+				<Markdown
+					remarkPlugins={[remarkGfm]}
+					rehypePlugins={[rehypeRaw, rehypeHighlight]}
+					urlTransform={urlTransform}
+					remarkRehypeOptions={{ allowDangerousHtml: true }}
+					components={{
+						a: ({ href, ...props }) => (href !== undefined ? <Link href={href} {...props} /> : <a {...props} />),
+					}}
+				>
+					{markdown}
+				</Markdown>
+			</div>
+		</>
+	);
+}
+```

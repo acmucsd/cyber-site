@@ -14,6 +14,7 @@
 
 .content {
 	margin-bottom: -10px;
+	tab-size: 4;
 }
 
 .content p,
@@ -58,3 +59,93 @@
 .content a[href]:hover {
 	text-decoration-color: var(--theme);
 }
+
+.content blockquote {
+	border-left: var(--card-border);
+	border-left-width: 5px;
+	padding: 10px;
+}
+.content blockquote::after {
+	content: "";
+	display: block;
+	margin-top: -10px;
+}
+
+/* Based on https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.10.0/styles/github-dark.css */
+.content :global(.hljs-doctag),
+.content :global(.hljs-keyword),
+.content :global(.hljs-meta) :global(.hljs-keyword),
+.content :global(.hljs-template-tag),
+.content :global(.hljs-template-variable),
+.content :global(.hljs-type),
+.content :global(.hljs-variable):global(.language_) {
+	/* color: #ff7b72; */
+	font-weight: bold;
+}
+/* .content :global(.hljs-title),
+.content :global(.hljs-title):global(.class_),
+.content :global(.hljs-title):global(.class_):global(.inherited__),
+.content :global(.hljs-title):global(.function_) {
+	color: #d2a8ff;
+} */
+/* .content :global(.hljs-attr),
+.content :global(.hljs-attribute),
+.content :global(.hljs-literal),
+.content :global(.hljs-meta),
+.content :global(.hljs-number),
+.content :global(.hljs-operator),
+.content :global(.hljs-selector-attr),
+.content :global(.hljs-selector-class),
+.content :global(.hljs-selector-id),
+.content :global(.hljs-variable) {
+	color: var(--theme);
+} */
+.content :global(.hljs-literal),
+.content :global(.hljs-number),
+.content :global(.hljs-meta) :global(.hljs-string),
+.content :global(.hljs-regexp),
+.content :global(.hljs-string) {
+	color: var(--theme);
+}
+.content :global(.hljs-built_in),
+.content :global(.hljs-symbol) {
+	/* color: #ffa657; */
+	font-weight: bold;
+}
+.content :global(.hljs-code),
+.content :global(.hljs-comment),
+.content :global(.hljs-formula) {
+	color: var(--secondary);
+}
+/* .content :global(.hljs-name),
+.content :global(.hljs-quote),
+.content :global(.hljs-selector-pseudo),
+.content :global(.hljs-selector-tag) {
+	color: #7ee787;
+}
+.content :global(.hljs-subst) {
+	color: #c9d1d9;
+} */
+.content :global(.hljs-section) {
+	/* color: #1f6feb; */
+	font-weight: bold;
+}
+/* .content :global(.hljs-bullet) {
+	color: #f2cc60;
+} */
+.content :global(.hljs-emphasis) {
+	/* color: #c9d1d9; */
+	font-style: italic;
+}
+.content :global(.hljs-strong) {
+	/* color: #c9d1d9; */
+	font-weight: bold;
+}
+/* .content :global(.hljs-addition) {
+	color: #aff5b4;
+	background-color: #033a16;
+}
+.content :global(.hljs-deletion) {
+	color: #ffdcd7;
+	background-color: #67060c;
+} */

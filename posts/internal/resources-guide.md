@@ -15,7 +15,7 @@ Below is more in-depth documentation that you don't need to read unless somethin
 
 Each Markdown file starts with a _header_, which looks like this. Note that it is starts and ends with a `---` that separates it from the content of the page.
 
-```md
+```yml
 ---
 published: 2024-11-24
 title: How to make a lockpick in DIB Makerspace
@@ -64,3 +64,25 @@ Internal pages are pages that are intentionally left unlisted. "Unlisted" in thi
 However, keep in mind that internal pages are still publicly accessible and searchable in the [GitHub repo](https://github.com/acmucsd/cyber-site). Once found, they can be linked to by anyone. Any content that should be kept within ACM Board should be put on [Notion](https://acmurl.com/notion). Unlisting a page is intended to make it easier for members to find what they're looking for.
 
 To create an internal page, put the page under [posts/internal/](https://github.com/acmucsd/cyber-site/tree/main/posts/internal).
+
+## Known Markdown quirks
+
+- You can link to other Markdown pages by their Markdown file names. For example, this:
+
+  ```md
+  [Test](./test.md)
+  ```
+
+  becomes this:
+
+  > [Test](./test.md)
+
+- However, this doesn't work for images. You have to put images into the public/ folder, then use the URL of the image in the website.
+
+  For example, if I put an image at public/assets/my-image.png, then the Markdown should look like this:
+
+  ```md
+  ![My image](/assets/my-image.png)
+  ```
+
+  This is because the image is hosted at `https://cyber.acmucsd.com/assets/my-image.png` (without `public`).

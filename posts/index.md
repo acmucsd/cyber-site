@@ -6,7 +6,7 @@ Welcome to our resources page! Here's a collection of guides written by our team
 
 ## Guides
 
-[General cybersecurity resources](./test.md)
+[General cybersecurity resources](./internal/resources-guide.md)
 
 [Places to print](./a/b/c/d/e/f/g.md)
 
@@ -18,7 +18,7 @@ Welcome to our resources page! Here's a collection of guides written by our team
 
 ## SDCTF writeups
 
-[SDCTF 2023](./test.md)
+[SDCTF 2023](./internal/test.md)
 
 [SDCTF 2024](./a/b/c/d/e/f/g.md)
 
@@ -28,7 +28,7 @@ Welcome to our resources page! Here's a collection of guides written by our team
 
 ## Lockpicking
 
-[List of lockpicking resources](./test.md)
+[List of lockpicking resources](./internal/test.md)
 
 [How to make a lockpick in DIB Makerspace](./a/b/c/d/e/f/g.md)
 
@@ -38,7 +38,7 @@ Welcome to our resources page! Here's a collection of guides written by our team
 
 ## Certifications
 
-[ISC2](./test.md)
+[ISC2](./internal/test.md)
 
 [Security+](./a/b/c/d/e/f/g.md)
 

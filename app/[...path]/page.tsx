@@ -27,21 +27,23 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
 
 	return (
 		<>
-			<div>
-				{title ? <h1>{title}</h1> : null}
+			<div className={styles.header}>
+				{title ? <h1 className={styles.heading}>{title}</h1> : null}
 				<p className={styles.publishDate}>{published ? `Posted ${dateFormat.format(published)}.` : "Unpublished."}</p>
 			</div>
-			<Markdown
-				remarkPlugins={[remarkGfm]}
-				rehypePlugins={[rehypeRaw]}
-				urlTransform={urlTransform}
-				remarkRehypeOptions={{ allowDangerousHtml: true }}
-				components={{
-					a: ({ href, ...props }) => (href !== undefined ? <Link href={href} {...props} /> : <a {...props} />),
-				}}
-			>
-				{markdown}
-			</Markdown>
+			<div className={styles.content}>
+				<Markdown
+					remarkPlugins={[remarkGfm]}
+					rehypePlugins={[rehypeRaw]}
+					urlTransform={urlTransform}
+					remarkRehypeOptions={{ allowDangerousHtml: true }}
+					components={{
+						a: ({ href, ...props }) => (href !== undefined ? <Link href={href} {...props} /> : <a {...props} />),
+					}}
+				>
+					{markdown}
+				</Markdown>
+			</div>
 		</>
 	);
 }

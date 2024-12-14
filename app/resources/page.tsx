@@ -15,7 +15,9 @@ export const metadata: Metadata = {
 export default async function Page() {
 	const posts = await getAllPosts()
 		.then((paths) => Promise.all(paths.map(getPost)))
-		.then((posts) => posts.filter((post): post is PublishedPost => !!post.published));
+		.then((posts) =>
+			posts.filter((post): post is PublishedPost => !!post.published && !post.path.startsWith("/internal/")),
+		);
 	posts.sort((a, b) => +b.published - +a.published);
 
 	const content = await readFile("posts/index.md", "utf-8");

@@ -40,4 +40,12 @@ export default async function ResourcePage({ params }: ResourcePageProps) {
 		</>
 	);
 }
+
+export async function generateStaticParams() {
+	const paths = await getAllPosts();
+	return paths.map((path) => ({ path: path.split("/").slice(1) }));
+}
+
+// Should prevent directory traversal by allowlisting paths
+export const dynamicParams = false;
 ```

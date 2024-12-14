@@ -5,6 +5,7 @@ import Markdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import rehypeRaw from "rehype-raw";
 import remarkGfm from "remark-gfm";
+import "./nord.css";
 import styles from "./page.module.css";
 
 type ResourcePageProps = {

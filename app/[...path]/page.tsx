@@ -26,12 +26,19 @@ export async function generateMetadata({ params }: ResourcePageProps): Promise<M
 export default async function ResourcePage({ params }: ResourcePageProps) {
 	const { path } = await params;
 	const { markdown, title, published } = await getPost(path.join("/"));
+	const isInternal = path[0] === "internal";
 
 	return (
 		<>
 			<div className={styles.header}>
 				{title ? <h1 className={styles.heading}>{title}</h1> : null}
-				<p className={styles.publishDate}>{published ? `Posted ${dateFormat.format(published)}.` : "Unpublished."}</p>
+				<p className={styles.publishDate}>
+					{published
+						? `${isInternal ? "Created" : "Posted"} ${dateFormat.format(published)}.`
+						: isInternal
+							? "Undated."
+							: "Unpublished."}
+				</p>
 			</div>
 			<div className={styles.content}>
 				<Markdown

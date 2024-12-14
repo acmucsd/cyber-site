@@ -6,7 +6,7 @@ description: howdy lmao
 
 Hello gamers! [Check this out](./writeups/sdctf2024.md) lol
 
-and this is an [external url](https://github.com/acmucsd/hack-website/commits/main/README.md)
+and this is an [external url (don't hover me)](https://github.com/acmucsd/hack-website/commits/main/README.md "hey ( ͡° ͜ʖ ͡°)")
 
 ```js
 const wow = 3;
@@ -49,3 +49,22 @@ export async function generateStaticParams() {
 // Should prevent directory traversal by allowlisting paths
 export const dynamicParams = false;
 ```
+
+> hello
+>
+> - hey
+> - howdy
+>
+>   - lmao
+>
+>     - wow
+>
+> - wow
+
+1. hello
+
+   2. wow
+
+      3000. hey
+
+      1. lmao

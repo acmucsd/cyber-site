@@ -1,0 +1,30 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	padding: 20px;
+}
+
+.heading {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.link {
+	color: var(--theme);
+}
+.link:hover {
+	text-decoration: underline;
+}
+
+.scroller {
+	display: flex;
+	gap: 10px;
+	overflow-x: auto;
+}
+
+.card {
+	width: 280px;
+	flex: none;
+}

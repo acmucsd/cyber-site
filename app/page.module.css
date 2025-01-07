@@ -22,18 +22,49 @@
 	font-size: 24px;
 }
 
+.explainerWrapper {
+	display: flex;
+	align-items: center;
+	padding: 20px;
+	gap: 20px;
+}
+
+.explainerWrapper img {
+	flex: none;
+	object-fit: cover;
+	border-radius: 20px;
+	height: auto;
+}
+
+@media (max-width: 1200px) {
+	.explainerWrapper img {
+		width: 300px;
+	}
+}
+
+@media (max-width: 800px) {
+	.explainerWrapper {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.explainerWrapper img {
+		width: 100%;
+		max-width: 500px;
+	}
+}
+
 .explainer {
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
-	max-width: 600px;
-	padding: 20px;
 	line-height: 1.4;
 }
 
 .buttons {
 	display: flex;
 	gap: 10px;
+	flex-wrap: wrap;
 }
 
 .testimonialsWrapper {

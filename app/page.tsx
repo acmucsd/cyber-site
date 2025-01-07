@@ -3,11 +3,14 @@ import Hero from "@/components/Hero";
 import Stat from "@/components/Stat";
 import Testimonial from "@/components/Testimonial";
 import { getAllCyberEvents } from "@/lib/api/EventsAPI";
+import Kickoff2022 from "@/public/assets/kickoff-2022.jpg";
+import Lockpicking101 from "@/public/assets/lockpicking-101.jpg";
 import GetInvolved from "@/public/assets/testimonials/getinvolved.jpg";
 import Loris from "@/public/assets/testimonials/loris.jpg";
 import Nick from "@/public/assets/testimonials/nick.jpg";
 import Sebastian from "@/public/assets/testimonials/sebastianprehn.jpg";
 import Thomas from "@/public/assets/testimonials/thomas-dick.jpg";
+import Image from "next/image";
 import styles from "./page.module.css";
 
 export default async function Home() {
@@ -31,7 +34,7 @@ export default async function Home() {
 					<span className={styles.statDesc}>Members</span>
 				</div>
 			</div>
-			<div>
+			<div className={styles.explainerWrapper}>
 				<div className={styles.explainer}>
 					<h2>Join ACM Cyber</h2>
 					<p>
@@ -45,8 +48,16 @@ export default async function Home() {
 						<Button href="/events">View events</Button>
 					</div>
 				</div>
+				<Image
+					src={Lockpicking101}
+					alt="ACM Cyber members pick locks at Lockpicking 101"
+					width={600}
+					height={300}
+					style={{ aspectRatio: "2 / 1" }}
+					sizes="(max-width: 800px) 100vw, (max-width: 1200px) 300px, 600px"
+				/>
 			</div>
-			<div>
+			<div className={styles.explainerWrapper}>
 				<div className={styles.explainer}>
 					<h2>What&rsquo;s a CTF?</h2>
 					<p>
@@ -70,6 +81,14 @@ export default async function Home() {
 						<Button href="https://acmurl.com/cyber-discord">Join the Discord</Button>
 					</div>
 				</div>
+				<Image
+					src={Kickoff2022}
+					alt="Members lock in on their laptops at an ACM Cyber event"
+					width={600}
+					height={400}
+					style={{ aspectRatio: "3 / 2" }}
+					sizes="(max-width: 800px) 100vw, (max-width: 1200px) 300px, 600px"
+				/>
 			</div>
 			<div className={styles.testimonialsWrapper}>
 				<h2>Testimonials</h2>

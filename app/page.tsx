@@ -1,4 +1,5 @@
 import Button from "@/components/Button";
+import EventsPreview from "@/components/EventsPreview";
 import Hero from "@/components/Hero";
 import Stat from "@/components/Stat";
 import Testimonial from "@/components/Testimonial";
@@ -13,12 +14,15 @@ import Thomas from "@/public/assets/testimonials/thomas-dick.jpg";
 import Image from "next/image";
 import styles from "./page.module.css";
 
+// Cache the events for 1 hour
+export const revalidate = 3600;
+
 export default async function Home() {
-	const events = await getAllCyberEvents();
+	const events = await getAllCyberEvents(true);
 
 	return (
 		<div className={styles.container}>
-			<Hero></Hero>
+			<Hero />
 			<div className={styles.stats}>
 				<div className={styles.stat}>
 					<Stat count={4} duration={1000} />
@@ -34,6 +38,7 @@ export default async function Home() {
 					<span className={styles.statDesc}>Members</span>
 				</div>
 			</div>
+			<EventsPreview events={events} />
 			<div className={styles.explainerWrapper}>
 				<div className={styles.explainer}>
 					<h2>Join ACM Cyber</h2>

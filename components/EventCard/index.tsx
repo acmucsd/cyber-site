@@ -8,10 +8,11 @@ export type EventCardProps = {
 	event: PublicEvent;
 	large?: boolean;
 	showDescription?: boolean;
+	className?: string;
 };
-export default function EventCard({ event, large, showDescription }: EventCardProps) {
+export default function EventCard({ event, large, showDescription, className = "" }: EventCardProps) {
 	return (
-		<Link href={`/event/${event.uuid}`} className={`${styles.card} ${large ? styles.large : ""}`}>
+		<Link href={`/event/${event.uuid}`} className={`${styles.card} ${large ? styles.large : ""} ${className}`}>
 			<div className={styles.cover}>
 				<Image src={event.cover} alt={`${event.title} cover image`} fill />
 			</div>

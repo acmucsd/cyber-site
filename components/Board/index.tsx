@@ -1,7 +1,17 @@
 import { BoardMember } from "@/lib/api/BoardAPI";
+import Board2022 from "@/public/assets/board/2022.jpg";
+import Board2023 from "@/public/assets/board/2023.jpg";
+import Board2024 from "@/public/assets/board/2024.jpg";
+import Image, { StaticImageData } from "next/image";
 import BoardCard from "../BoardCard";
 import Button from "../Button";
 import styles from "./style.module.css";
+
+const boardPhotos: Record<number, StaticImageData> = {
+	2022: Board2022,
+	2023: Board2023,
+	2024: Board2024,
+};
 
 export type BoardProps = {
 	startYear: number;
@@ -25,6 +35,16 @@ export default function Board({ startYear, members, years }: BoardProps) {
 					<BoardCard member={member} key={`${member.name}\n${member.position}`} />
 				))}
 			</div>
+			{boardPhotos[startYear] ? (
+				<div className={styles.boardPhotoWrapper}>
+					<Image
+						src={boardPhotos[startYear]}
+						alt={`ACM Cyber board photo ${startYear}–${startYear + 1}`}
+						className={styles.boardPhoto}
+						fill
+					/>
+				</div>
+			) : null}
 		</>
 	);
 }

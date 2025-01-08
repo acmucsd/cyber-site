@@ -6,16 +6,24 @@ import Testimonial from "@/components/Testimonial";
 import { getAllCyberEvents } from "@/lib/api/EventsAPI";
 import Kickoff2022 from "@/public/assets/kickoff-2022.jpg";
 import Lockpicking101 from "@/public/assets/lockpicking-101.jpg";
+import OpenGraphPreview from "@/public/assets/open-graph-preview.png";
 import GetInvolved from "@/public/assets/testimonials/getinvolved.jpg";
 import Loris from "@/public/assets/testimonials/loris.jpg";
 import Nick from "@/public/assets/testimonials/nick.jpg";
 import Sebastian from "@/public/assets/testimonials/sebastianprehn.jpg";
 import Thomas from "@/public/assets/testimonials/thomas-dick.jpg";
+import { Metadata } from "next";
 import Image from "next/image";
 import styles from "./page.module.css";
 
 // Cache the events for 1 hour
 export const revalidate = 3600;
+
+export const metadata: Metadata = {
+	openGraph: {
+		images: [{ url: OpenGraphPreview.src, width: OpenGraphPreview.width, height: OpenGraphPreview.height }],
+	},
+};
 
 export default async function Home() {
 	const events = await getAllCyberEvents(true);

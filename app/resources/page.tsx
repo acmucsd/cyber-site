@@ -10,6 +10,7 @@ import styles from "./page.module.css";
 
 export const metadata: Metadata = {
 	title: "Resources | ACM Cyber",
+	description: "A collection of guides written by ACM Cyber.",
 };
 
 export default async function Page() {

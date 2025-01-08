@@ -16,6 +16,7 @@ export async function generateMetadata({ params }: AboutPageProps): Promise<Meta
 
 	return {
 		title: `Board ${year}–${+year + 1} | ACM Cyber`,
+		description: `ACM Cyber's board members during the ${year}–${+year + 1} academic year.`,
 	};
 }
 

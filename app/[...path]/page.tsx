@@ -19,7 +19,8 @@ export async function generateMetadata({ params }: ResourcePageProps): Promise<M
 	return {
 		title: title ? `${title} | ACM Cyber` : "ACM Cyber",
 		description,
-		openGraph: { type: "article", publishedTime: published && dateFormat.format(published), authors: "ACM Cyber" },
+		authors: [{ name: "ACM Cyber", url: "https://cyber.acmucsd.com/" }],
+		openGraph: { type: "article", publishedTime: published && dateFormat.format(published) },
 	};
 }
 

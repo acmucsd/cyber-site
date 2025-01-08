@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: EventPageProps): Promise<Meta
 
 	return {
 		title: `${event.title} | ACM Cyber`,
-		description: `${dateFormat.formatRange(new Date(event.start), new Date(event.end))}\n${event.location}\n\n${event.description}`,
+		description: `📅 ${dateFormat.formatRange(new Date(event.start), new Date(event.end))}\n📍 ${event.location}\n\n${event.description}`,
 		openGraph: {
 			images: [event.cover],
 		},

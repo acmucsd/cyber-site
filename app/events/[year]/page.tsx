@@ -14,7 +14,8 @@ export async function generateMetadata({ params }: EventsPageProps): Promise<Met
 	const { year } = await params;
 
 	return {
-		title: `Events in ${year}–${+year + 1} | ACM Cyber`,
+		title: `Events Archive ${year}–${+year + 1} | ACM Cyber`,
+		description: `A collection of all events we hosted during the ${year}–${+year + 1} academic year. We promote community and education about cybersecurity by hosting workshops, competitions, and socials throughout the year.`,
 	};
 }
 

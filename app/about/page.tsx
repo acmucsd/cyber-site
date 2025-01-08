@@ -10,6 +10,8 @@ export const revalidate = 86400;
 
 export const metadata: Metadata = {
 	title: "About | ACM Cyber",
+	description:
+		"We are a tight-knit community of students that exists within the ACM family at UCSD. We aim to foster a community of cybersecurity enthusiasts at UCSD, connecting them to the wider cybersecurity network. Our goals include making cybersecurity fun and accessible through workshops, competitions, networking events, and more, as you explore the complex cybersecurity landscape.",
 };
 
 export default async function About() {

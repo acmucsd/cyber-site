@@ -1,6 +1,20 @@
-export const dateFormat = new Intl.DateTimeFormat("en-US", {
-	dateStyle: "medium",
-	timeStyle: "short",
+export const dateFormatShort = new Intl.DateTimeFormat("en-US", {
+	year: "numeric",
+	month: "short",
+	day: "numeric",
+	weekday: "short",
+	hour: "numeric",
+	minute: "2-digit",
+	timeZone: "America/Los_Angeles",
+});
+
+export const dateFormatLong = new Intl.DateTimeFormat("en-US", {
+	year: "numeric",
+	month: "long",
+	day: "numeric",
+	weekday: "long",
+	hour: "numeric",
+	minute: "2-digit",
 	timeZone: "America/Los_Angeles",
 });
 

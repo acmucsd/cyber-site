@@ -40,6 +40,9 @@
 	flex-direction: column;
 	grid-area: info;
 }
+.large .info {
+	padding: 20px;
+}
 
 .info p {
 	overflow: hidden;
@@ -55,4 +58,8 @@
 	white-space: pre-wrap;
 	grid-area: desc;
 	padding: 10px;
+}
+.large .description {
+	padding: 20px;
+	padding-top: 0;
 }

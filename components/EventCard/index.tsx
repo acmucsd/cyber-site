@@ -1,5 +1,5 @@
 import { PublicEvent } from "@/lib/api/EventsAPI";
-import { dateFormat } from "@/lib/util/events";
+import { dateFormatShort } from "@/lib/util/events";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./style.module.css";
@@ -17,7 +17,7 @@ export default function EventCard({ event, large, showDescription, className = "
 				<Image src={event.cover} alt={`${event.title} cover image`} fill />
 			</div>
 			<div className={styles.info}>
-				<p>{dateFormat.formatRange(new Date(event.start), new Date(event.end))}</p>
+				<p>{dateFormatShort.formatRange(new Date(event.start), new Date(event.end))}</p>
 				<p className={styles.title}>{event.title}</p>
 				<p>{event.location}</p>
 			</div>

@@ -7,7 +7,7 @@ unlisted: true
 
 Each page is a [Markdown](https://en.wikipedia.org/wiki/Markdown) file in the [posts/ folder](https://github.com/acmucsd/cyber-site/tree/main/posts) in the [ACM Cyber website repo](https://github.com/acmucsd/cyber-site). The file name corresponds to the URL of the page on the website. Feel free to look at the other files and see how the files correspond to pages on the website.
 
-To create a new page, duplicate one of the existing files and change whatever you want.
+To create a new page, duplicate one of the existing files ([such as this one](./test.md)) and change whatever you want.
 
 Below is more in-depth documentation that you don't need to read unless something goes wrong.
 

@@ -15,6 +15,7 @@
 .content {
 	margin-bottom: -10px;
 	tab-size: 4;
+	line-height: 1.5;
 }
 
 .content p,
@@ -27,7 +28,9 @@
 .content h5,
 .content h6,
 .content blockquote,
-.content iframe {
+.content iframe,
+.content table,
+.content hr {
 	margin-bottom: 10px;
 }
 
@@ -76,4 +79,28 @@
 	content: "";
 	display: block;
 	margin-top: -10px;
+}
+
+.content [data-footnote-ref] {
+	user-select: none;
+}
+.content [data-footnote-ref]::before {
+	content: "[";
+}
+.content [data-footnote-ref]::after {
+	content: "]";
+}
+
+.content hr {
+	border: none;
+	border-top: 1px solid currentColor;
+}
+
+.content table {
+	border-collapse: collapse;
+}
+.content th,
+.content td {
+	border: var(--card-border);
+	padding: 5px 10px;
 }

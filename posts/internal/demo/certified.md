@@ -1,5 +1,5 @@
 ---
-published: 2024-11-24
+published: 2025-01-27
 title: Certified in Cybersecurity
 description: Learn the fundamentals. Get certified. Show employers that you know your sh!t.
 ---

@@ -5,12 +5,12 @@
 	border-bottom: 3px solid var(--theme);
 	height: var(--navbar-height);
 	overflow: hidden;
+	position: relative;
+	z-index: 5;
 }
 @media (max-width: 470px) {
 	.navbar {
 		overflow: visible;
-		position: relative;
-		z-index: 5;
 	}
 }
 

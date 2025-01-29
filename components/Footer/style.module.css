@@ -22,6 +22,7 @@
 
 .acm-logo,
 .youtube-logo,
+.github-logo,
 .discord-logo,
 .sdctf-logo {
 	width: 2.5rem;
@@ -66,7 +67,7 @@
 	opacity: 0;
 	background: repeating-linear-gradient(
 		90deg in oklab,
-		oklab(71.7531% 0.162851 0.067685) 0%, 
+		oklab(71.7531% 0.162851 0.067685) 0%,
 		oklab(79.5766% 0.060439 0.121605) 18.75%,
 		oklab(77.1074% -0.138729 0.153649) 36.98%,
 		oklab(74.4551% -0.096795 -0.026325) 55.73%,
@@ -79,13 +80,21 @@
 	animation: rainbow-spin forwards linear infinite 1.2s;
 }
 .acm-logo:hover::after {
-	animation: rainbow-spin forwards linear infinite 1.2s, fade-in-and-out 1.5s linear 1 forwards;
+	animation:
+		rainbow-spin forwards linear infinite 1.2s,
+		fade-in-and-out 1.5s linear 1 forwards;
 }
 .youtube-logo {
 	mask-image: url("/assets/youtube.svg");
 }
 .youtube-logo:hover {
 	background-color: #ff0033;
+}
+.github-logo {
+	mask-image: url("/assets/github.svg");
+}
+.github-logo:hover {
+	background-color: #aaa;
 }
 .discord-logo {
 	mask-image: url("/assets/discord.svg");

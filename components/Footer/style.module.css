@@ -22,6 +22,7 @@
 
 .acm-logo,
 .youtube-logo,
+.instagram-logo,
 .github-logo,
 .discord-logo,
 .sdctf-logo {
@@ -89,6 +90,12 @@
 }
 .youtube-logo:hover {
 	background-color: #ff0033;
+}
+.instagram-logo {
+	mask-image: url("/assets/instagram.svg");
+}
+.instagram-logo:hover {
+	background-color: #ff0069;
 }
 .github-logo {
 	mask-image: url("/assets/github.svg");

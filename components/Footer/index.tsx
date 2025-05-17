@@ -13,6 +13,9 @@ export default function Footer() {
 				<a href="https://acmurl.com/youtube">
 					<div className={styles["youtube-logo"]} aria-label="Visit our YouTube channel." />
 				</a>
+				<a href="https://www.instagram.com/cyber.ucsd/">
+					<div className={styles["instagram-logo"]} aria-label="Follow our Instagram." />
+				</a>
 				<a href="https://github.com/acmucsd/cyber-site">
 					<div className={styles["github-logo"]} aria-label="Leave suggestions on this website's GitHub repository." />
 				</a>

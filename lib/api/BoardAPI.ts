@@ -38,6 +38,11 @@ export async function getBoard(year?: number | "first"): Promise<AcmBoard[]> {
 
 	for (let i = 0; i < doc.sheetCount; i++) {
 		const sheet = doc.sheetsByIndex[i];
+		if (sheet.hidden) {
+			// Nick creating a sheet to figure out how many people are in board during
+			// all hands broke the website
+			continue;
+		}
 		const startYear = 2000 + +(sheet.title.match(/\d+/)?.[0] ?? "");
 		if (year === "first" ? i !== 0 : startYear !== year) {
 			years.push({

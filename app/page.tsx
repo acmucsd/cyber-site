@@ -33,7 +33,7 @@ export default async function Home() {
 			<Hero />
 			<div className={styles.stats}>
 				<div className={styles.stat}>
-					<Stat count={4} duration={1000} />
+					<Stat count={5} duration={1000} />
 					<span className={styles.statDesc}>CTFs</span>
 				</div>
 				<div className={styles.stat}>

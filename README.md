@@ -16,9 +16,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
    $ npm install
    ```
 
-1. Populate `.env`. You'll need to get its contents from someone in ACM.
-
-   TODO: Where should we put our `.env` file?
+1. Copy and paste [these environment variables (requires ACM account)](https://docs.google.com/document/d/1OnklgRkFLUbbtv-l4P5tmhGqxuEg1YP0IMVZQTfl5cI/) into a new file named `.env`.
 
 1. Then run the development server:
 

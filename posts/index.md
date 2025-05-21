@@ -22,6 +22,8 @@ Welcome to our resources page! Here's a collection of guides written by our team
 
 [SDCTF 2023](./todo.md)
 
+[SDCTF 2025](./writeups/sdctf-2025.md)
+
 </section>
 
 <section>

@@ -9,6 +9,10 @@
 	padding: 20px;
 }
 
+.container > h1:not(:first-child) {
+	margin-top: 2rem;
+}
+
 .upcoming {
 	display: grid;
 	grid-template-columns: auto auto;

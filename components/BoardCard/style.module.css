@@ -7,6 +7,16 @@
 	gap: 10px;
 }
 
+.lines {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.card .lines p {
+	line-height: 1;
+}
+
 .photoWrapper {
 	flex: none;
 	width: 100px;

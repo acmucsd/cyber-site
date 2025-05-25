@@ -18,7 +18,8 @@
 .container > :global(.sections) {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-	gap: 10px;
+	gap: 2rem;
+	margin: 2rem 0;
 }
 @media (max-width: 400px) {
 	.container > :global(.sections) {

@@ -61,7 +61,7 @@ export default async function About() {
 				<Button href="https://acmurl.com/cyber-elections">Board Elections</Button>
 				<Button href="https://acmurl.com/staff-info">Diamond Staff</Button>
 			</div>
-			<h2>Our Team</h2>
+			<h2>Our Board</h2>
 			<Board
 				startYear={boardHistory[0].startYear}
 				members={boardHistory[0].members}

@@ -42,7 +42,7 @@ export default async function Home() {
 				</div>
 				<div className={styles.stat}>
 					{/* https://metabase.acmucsd.com/question/46 */}
-					<Stat count={767} duration={2000} />
+					<Stat count={801} duration={2000} />
 					<span className={styles.statDesc}>Members</span>
 				</div>
 			</div>

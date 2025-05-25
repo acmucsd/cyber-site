@@ -33,7 +33,7 @@ export default async function AboutPage({ params }: AboutPageProps) {
 	return (
 		<main className={styles.container}>
 			<h1>
-				Board in {startYear}–{startYear + 1}
+				Board {startYear}–{startYear + 1}
 			</h1>
 			<Board startYear={startYear} members={members} years={boardHistory.map(({ startYear }) => startYear)} />
 		</main>

@@ -12,6 +12,7 @@ import Loris from "@/public/assets/testimonials/loris.jpg";
 import Nick from "@/public/assets/testimonials/nick.jpg";
 import Sebastian from "@/public/assets/testimonials/sebastianprehn.jpg";
 import Thomas from "@/public/assets/testimonials/thomas-dick.jpg";
+import Allen from "@/public/assets/testimonials/wang.jpg";
 import { Metadata } from "next";
 import Image from "next/image";
 import styles from "./page.module.css";
@@ -121,6 +122,15 @@ export default async function Home() {
 						url="https://www.instagram.com/getinvolveducsd/p/CPUAGoJnpr5/"
 					/>
 					<Testimonial
+						photo={Allen}
+						name="Allen Wang"
+						role="Berkeley CS Dropout"
+						comment={
+							"Every start up at UCSD is copying our posters-\nfrom color to font\nTaking this as the greatest compliment as the designer for those posters🤓"
+						}
+						url="https://www.linkedin.com/posts/allen-wang-1b82761b8_every-start-up-at-ucsd-is-copying-our-posters-activity-7334677561869770752-1m21/"
+					/>
+					<Testimonial
 						photo={Loris}
 						name="Loris D'Antoni"
 						role="A Professor"
@@ -136,7 +146,7 @@ export default async function Home() {
 					<Testimonial
 						photo={Thomas}
 						name="Thomas Dickerson"
-						role="Co-Founder"
+						role="SFF nerd"
 						comment="Joe"
 						url="https://bsky.app/profile/elfprince13.mumak.app/post/3layg5ybxzc2q"
 					/>

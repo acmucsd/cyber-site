@@ -23,6 +23,7 @@
 	filter: drop-shadow(var(--card-shadow));
 	transition: background-color 0.2s;
 	position: relative;
+	white-space: pre-wrap;
 }
 .card[href]:hover .comment,
 .card[href]:hover .comment::before {

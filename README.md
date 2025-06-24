@@ -1,3 +1,5 @@
+![Screenshot of hero on desktop in dark mode](./docs/hero.png)
+
 # ACM Cyber website
 
 This repository contains the code for ACM Cyber website.
@@ -44,4 +46,4 @@ Our decision to use Next.js was strongly based on maintainability. ACM Cyber is 
 
 Almost all of ACM's other websites use Next.js, so by sharing the same tech stack, ACM's dev team can maintain this website if any changes are required.
 
-An alternative we considered was creating a build script to deploy a static site to GitHub Pages, which would be free and straightforward. A build script wouldn't require as much technical knowledge to write, but we're concerned that it would be difficult for future teams to maintain the build script, compared to a well documented framework like Next.js. In addition, as ACM is likely to always have a dev team, by using Next.js and Vercel ACM will always have someone familiar with how this website works, even if they are not familiar with this particular codebase. 
+An alternative we considered was creating a build script to deploy a static site to GitHub Pages, which would be free and straightforward. A build script wouldn't require as much technical knowledge to write, but we're concerned that it would be difficult for future teams to maintain the build script, compared to a well documented framework like Next.js. In addition, as ACM is likely to always have a dev team, by using Next.js and Vercel ACM will always have someone familiar with how this website works, even if they are not familiar with this particular codebase.

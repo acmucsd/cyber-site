@@ -20,6 +20,10 @@
 	padding: 0 0.75rem;
 }
 
+.spacer {
+	flex: auto;
+}
+
 .acm-logo,
 .youtube-logo,
 .instagram-logo,

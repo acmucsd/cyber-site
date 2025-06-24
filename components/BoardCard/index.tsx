@@ -16,10 +16,10 @@ export default function BoardCard({ member }: BoardCardProps) {
 				) : null}
 			</div>
 			<div className={styles.info}>
-				<div>
+				<div className={styles.lines}>
 					<p className={styles.name}>{member.name}</p>
-					<p className={styles.secondary}>{member.pronouns}</p>
-					<p>{member.position}</p>
+					{member.pronouns ? <p className={styles.secondary}>{member.pronouns}</p> : null}
+					{member.position ? <p>{member.position}</p> : null}
 					{member.specialization ? <p className={styles.secondary}>{member.specialization}</p> : null}
 				</div>
 				<div className={styles.links}>

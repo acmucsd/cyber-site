@@ -62,13 +62,14 @@ export default async function EventPage({ params }: EventPageProps) {
 					<Button href="https://acmurl.com/cyber-discord" primary>
 						Join Discord for updates
 					</Button>
-					<Button href={generateGoogleCalendarUrl(event)} target="_blank">
-						Add to Google Calendar
-					</Button>
 					<IcalDownloadButton event={event} className={styles.hasIcon}>
 						<Download size={20} aria-hidden />
-						Download .ics file
+						Add to Apple Calendar
 					</IcalDownloadButton>
+                        <Button href={generateGoogleCalendarUrl(event)} target="_blank" className={styles.hasIcon}>
+						<Download size={20} aria-hidden />
+                        Add to Google Calendar
+                    </Button>
 				</div>
 				<p>{event.description}</p>
 			</div>

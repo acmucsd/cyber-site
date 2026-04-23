@@ -4,9 +4,9 @@ title: Join ACM Cyber Board!
 description: Some notes about applying to ACM Cyber Board
 ---
 
-# Join ACM Cyber Board!
-
 Your incoming Cyber president Matt here. If you weren't already in the know, ACM Cyber is recruiting new board members for 2026-2027! Confused? Nervous? So was I. ACM has a wonderful [elections guide](https://acmurl.com/elections) but I thought I wanted to get more specific here.
+
+---
 
 ## Why should I apply?
 There's a lot of areas of computing you can dive into. However, cybersecurity can be a bit more confusing and at a glance it might seem like there are fewer ways to get involved. That's where we come in.
@@ -14,6 +14,8 @@ There's a lot of areas of computing you can dive into. However, cybersecurity ca
 If you're interested spreading the good word of cyber, ACM Cyber is for you. If you've been to our events and felt that this is your vibe, ACM Cyber is *definitely* for you.
 
 As always, joining an org like ACM is a great opportunity to touch grass and network.
+
+---
 
 ## What positions?
 ### Technical Event Director
@@ -25,12 +27,16 @@ You'll help keep everyone nice and cozy by hosting socials. Think Cyber movie ni
 ### Competitions Director
 You'll help organize [SDCTF](https://sdc.tf) by setting up challenge infrastructure, organizing challenge development, and ironing out sponsors and logistics. As such, prior CTF or CyberPatriot or any kind of experience with competitions is great but not required! We are also developing a team for [CCDC](https://nationalccdc.org), but this project is more in the works. This is probably the most involved role.
 
+---
+
 ## What do I need?
 Since we can't pay you real money for your effort, all we can ask for is
 - You're a registered UCSD student for 2026-2027
 - You're enthusiastic about ACM Cyber and the things we're doing
 
 This means that we care that you care. Technical skills or past experience are great but secondary to your general enthusiasm for Cyber. For example, if your role involves hosting events, you'll really shine through to attendees if you're passionate about what you're doing. Please don't think that you're not "good enough" to join. ACM Cyber tries to be the opposite of that idea.
+
+---
 
 ## What's the process?
 
@@ -48,6 +54,8 @@ One half exception: if you're applying to host workshops or socials, be ready to
 Check the elections guide for when we'll release decisions. If you receive good news from us, please let us know quickly! This helps us keep things moving. If we're a match, then please keep checking your email and Discord where we'll send you info about onboarding and next steps.
 
 If we can't offer you the position, please don't take it as a reflection of your skills. It sucks and I've been there. There are hard limits on the size of our team, and they're usually less than the number of applications. Keep your chin up! There'll always be more cycles and more opportunities to get involved.
+
+---
 
 ## I have more questions!
 Happy to answer them! Join the [Cyber Discord](https://acmurl.com/cyber-discord) and send me a question or ask in general chat so more people can see and benefit!

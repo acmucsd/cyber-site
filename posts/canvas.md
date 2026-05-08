@@ -21,8 +21,6 @@ Passwords and other university-specific information is generally stored on campu
 
 ## Which universities are affected?
 
-We've copied [this file](/affected.txt) which was provided by the attackers containing a list of affected institutions. The file appears to only contain text. You can also search below:
+We've copied [this file](https://acmucsd.github.io/canvas-breach/note.txt) which was provided by the attackers containing a list of affected institutions. The file appears to only contain text. You can also search below (check [here](https://acmucsd.github.io/canvas-breach/) if it doesn't load).
 
-You can search the provided list interactively below. If your browser blocks embedded content, [open the page directly](/canvas-affected/)
-
-<iframe src="/canvas-affected" title="Search affected institutions" style="width:100%;height:480px;border:1px solid #ddd;border-radius:6px;" loading="lazy"></iframe>
+<iframe src="https://acmucsd.github.io/canvas-breach/" title="Search affected institutions" style="width:100%;height:480px;border:1px solid #ddd;border-radius:6px;" loading="lazy"></iframe>

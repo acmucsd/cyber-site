@@ -15,7 +15,7 @@ Instructure's LMS [Canvas has been compromised](https://www.cnn.com/2026/05/07/u
 - PIDs
 - Content on Canvas such as messages, assignments, comments
 
-Passwords and other university-specific information is generally stored on campus servers and not instructure, but expect an increase in phishing and social engineering attacks directed at university-affiliated accounts.
+Passwords and other university-specific information is generally stored on campus servers and not Instructure, but expect an increase in phishing and social engineering attacks directed at university-affiliated accounts.
 
 ---
 
@@ -24,3 +24,6 @@ Passwords and other university-specific information is generally stored on campu
 We've copied [this file](https://acmucsd.github.io/canvas-breach/note.txt) which was provided by the attackers containing a list of affected institutions. The file appears to only contain text. You can also search below (check [here](https://acmucsd.github.io/canvas-breach/) if it doesn't load).
 
 <iframe src="https://acmucsd.github.io/canvas-breach/" title="Search affected institutions" style="width:100%;height:480px;border:1px solid #ddd;border-radius:6px;" loading="lazy"></iframe>
+
+## How did the breach occur?
+Not conclusive yet. The attackers injected their message into the CSS of the Canvas login page. Our alumnus Gowtham has posted some [thoughts here](https://www.linkedin.com/posts/gowthamduggirala_bug-bounties-and-vulnerability-disclosure-activity-7458335816629555200-1SF2).

@@ -1,5 +1,4 @@
 ---
-published: 2025-05-21
 title: SDCTF 2025 Writeups
 description: butt
 ---

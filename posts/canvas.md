@@ -89,12 +89,7 @@ A common theme in these new changes is [external LTI tools](https://community.in
 
 On May 7 at around 13:00 PST, UCSD's Canvas page was defaced. The attackers' message was included in a [CSS file](https://github.com/acmucsd/canvas-breach/blob/main/canvas-override.css). It seems to have been inserted as a [custom style](https://community.instructure.com/en/kb/articles/661411-how-do-i-upload-custom-javascript-and-css-files-to-an-account), normally used for customization by schools.
 
-If so, this implies that the attackers gained access to the configurations of the affected instances and were able to apply the changes en masse. Interestingly, Canvas's backend remained functional via the mobile clients until the platform was taken down for "scheduled maintenance" by Instructure.
-
-The stylesheet was located at this now-dead URL, and it wouldn't be a surprise if this account and file corresponded to to a Free-For-Teacher instance.
-```
-https://instructure-uploads.s3.amazonaws.com/account_131710000000000001/attachments/18218585/canvas-override.css
-```
+If so, this implies that the attackers gained access to the configurations of the affected instances and were able to apply the changes en masse, as discussed in the above speculation. Interestingly, Canvas's backend remained functional via the mobile clients until the platform was taken down for "scheduled maintenance" by Instructure.
 
 ---
 

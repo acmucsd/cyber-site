@@ -28,9 +28,10 @@ Anticipate an increase in phishing and targeted scams that make use of the leake
 ## What data may have been compromised?
 
 - Names of students and instructors
-- .edu emails
+- Email addresses
 - Student IDs
-- Content on Canvas such as messages, assignments, comments
+- Course enrollment information
+- Content on Canvas such as messages
 
 If you have submitted sensitive information to Canvas, make preparations for the information becoming public. The attackers gave a May 12, 2026 deadline before the data is leaked.
 
@@ -53,15 +54,17 @@ The attackers' site on the dark web appeared to link to the downloadable leaks h
 
 ## How did the breach occur?
 
-[According to Instructure](https://www.instructure.com/incident_update), the attackers utilized an exploit relating to Canvas Free-For-Teacher accounts, both to initially exfiltrate data and later to deface frontend webpages. The specifics remain undisclosed, but [an article](https://businessinsights.bitdefender.com/technical-advisory-shinyhunters-breach-instructure-canvas-lms) by Sean Nikkel of BitDefender lays out two likely techniques:
-- Vishing and social engineering to gain priveleged credentials and access. This has been used extensively by ShinyHunters.
-- Privelege escalation through the Free-For-Teacher system and compromise due to improper isolation of Canvas instances. It is suspected that third-party integrations may have been involved in the attack vector.
+The specifics remain undisclosed, but [an article](https://businessinsights.bitdefender.com/technical-advisory-shinyhunters-breach-instructure-canvas-lms) by Sean Nikkel of BitDefender lays out two likely techniques:
+- Vishing and social engineering to gain priveleged credentials and access (typical ShinyHunters M.O.)
+- Privelege escalation through the Free-For-Teacher system and compromise due to improper isolation of Canvas instances
 
 ### What could've happened
+[According to Instructure's CEO](https://www.instructure.com/incident_update), the exploit was via "support tickets in our Free for Teacher environment". Free for Teacher is Canvas's program allowing anyone to create their own Canvas instance for free.
+
 Instructure has released a [changelog](https://community.instructure.com/en/discussion/666044/incident-change-log-for-may-2026) of UX updates in response to the incident. Here's a quick summary.
 
 Changes made before the May 7 defacement:
-- Better enforce external SSO before taking admin actions e.g. themes, CSP
+- Better enforce external SSO before taking admin actions e.g. [themes](https://community.instructure.com/en/kb/articles/661411-how-do-i-upload-custom-javascript-and-css-files-to-an-account), [CSP](https://community.instructure.com/en/kb/articles/661603-how-do-i-manage-the-content-security-policy-for-an-account)
 - Stop GraphQL clients from reading all enrollment IDs in a course
 - Improve sanitization of inputs in Canvas's built in rich text editor
 
@@ -69,27 +72,37 @@ After May 7:
 - Reenable HTML input in the rich text editor
 - Disable account self-registration
 - Gate third party apps' [developer key](https://developerdocs.instructure.com/services/canvas/oauth2/file.developer_keys) management behind SSO
-- Disallow the use of JS to accept OAuth permissions
+- Disallow the use of client-side JavaScript to accept OAuth permissions
 
-A common theme in these new changes is [external LTI tools](https://community.instructure.com/en/kb/articles/662753-what-are-external-apps-lti-tools). When approved, they are given Canvas API developer keys. Of note, developer keys have full access by default.
+The changes having to do with HTML sanitization, CSP, and JavaScript seem to imply [XSS](https://en.wikipedia.org/wiki/Cross-site_scripting). This allows attackers to inject malicious JS into browser sessions.
 
-<div style="border: 2px solid #52bfbf; border-radius: 8px; padding: 8px;">
-<h3>One possible attack theory</h3>
-<ol>
-<li>Utilize a bug allowing Free-For-Teacher accounts to bypass campus-specific SSO and arbitrarily access other Canvas instances</li>
-<li>Use custom CSS/JS to inject XSS into Canvas pages and later on add a ransom message, as described in the next section</li>
-<li>Course administrators view XSS-infected pages and thereby silently approve OAuth permissions for malicious third-party LTI apps</li>
-<li>Malicious LTI apps now have arbitrary access to the Canvas API to exfiltrate data, etc.</li>
-</ol>
-<p>This seems to hit the major points discussed in the changelog, but because those changes are described as "precautionary", it's possible that not all were directly relevant to the attack.</p>
-<p>As always, we aren't cybersecurity professionals, but students who do this for fun. Take this all with a grain of salt.</p>
-</div>
+A common theme in these post May-7 patches is [external tools](https://community.instructure.com/en/kb/articles/662753-what-are-external-apps-lti-tools). When approved, they are given Canvas API developer keys. Of note, developer keys have full access by default. The developers key page also mentions that "Developer keys created globally, by an Instructure employee, are functional in any Canvas account where they are enabled."
+
+> ### One possible series of events
+>
+> 1. Attackers notice improper sanitization of support tickets and submit tickets containing malicious JS
+>
+> 2. Instructure support staff view the tickets and run malicious JavaScript, allowing the attackers to hijack their sessions
+>
+> 3. To persist their access, attackers use Instructure staff's sessions to create developer keys with full access to all Canvas instances
+>
+> 4. Attackers use these keys to exfiltrate data using GraphQL, which allows batching massive queries with fewer requests
+>
+> 5. After Instructure fails to patch the XSS issue, attackers use Theme Editor to post their ransom note across different campuses (discussed further below)
+
+This seems to hit the major points discussed in the changelog, but because those changes are described as "precautionary", it's possible that not all were directly relevant to the attack.
+
+Confusingly, the changelog itself was updated. It appears that Instructure's original patch was mostly opt-in and this proved insufficient.
+```diff
+- A new Root Account setting has been added to designate an "Elevated Auth Provider." When enabled, a user attempting to make admin actions must be authenticated through the selected auth provider, or the request will fail.
++ When an auth provider is enabled for an instance, admin actions require the user to be authenticated through the selected provider. Requests from users authenticated through any other provider will fail.
+```
 
 ### What we saw on Thursday
 
-On May 7 at around 13:00 PST, UCSD's Canvas page was defaced. The attackers' message was included in a [CSS file](https://github.com/acmucsd/canvas-breach/blob/main/canvas-override.css). It seems to have been inserted as a [custom style](https://community.instructure.com/en/kb/articles/661411-how-do-i-upload-custom-javascript-and-css-files-to-an-account), normally used for customization by schools.
+On May 7 at around 13:00 PST, UCSD's Canvas page was defaced. The attackers' message was included in a [CSS file](https://github.com/acmucsd/canvas-breach/blob/main/canvas-override.css). It seems to have been inserted through Theme Editor. Because the mobile clients don't apply custom styles, they functioned until Instructure shut down the service for "scheduled maintenance".
 
-If so, this implies that the attackers gained access to the configurations of the affected instances and were able to apply the changes en masse, as discussed in the above speculation. Interestingly, Canvas's backend remained functional via the mobile clients until the platform was taken down for "scheduled maintenance" by Instructure.
+According to an [older version](https://web.archive.org/web/20260508225720/https://www.instructure.com/incident_update) of Instructure's response page, the defacement was due to "the same issue that led to the unauthorized access the prior week". This leads us to believe that Canvas's initial response involved revoking malicious API keys but overlooked the original support tickets issue.
 
 ---
 

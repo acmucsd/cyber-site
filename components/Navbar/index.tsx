@@ -41,6 +41,9 @@ export default function Navbar() {
 					<Link href="/events" className={`${styles.link} ${pathname.startsWith("/event") ? styles.active : ""}`}>
 						Events
 					</Link>
+					<Link href="/blog" className={`${styles.link} ${pathname.startsWith("/blog") ? styles.active : ""}`}>
+						Blog
+					</Link>
 					<Link href="/resources" className={`${styles.link} ${pathname === "/resources" ? styles.active : ""}`}>
 						Resources
 					</Link>

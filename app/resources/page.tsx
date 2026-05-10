@@ -1,5 +1,4 @@
-import { PostCard } from "@/components/PostCard";
-import { getAllPosts, getPost, PublishedPost, urlTransform } from "@/lib/util/posts";
+import { urlTransform } from "@/lib/util/posts";
 import { readFile } from "fs/promises";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -14,13 +13,6 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-	const posts = await getAllPosts()
-		.then((paths) => Promise.all(paths.map(getPost)))
-		.then((posts) =>
-			posts.filter((post): post is PublishedPost => !!post.published && !post.path.startsWith("/internal/")),
-		);
-	posts.sort((a, b) => +b.published - +a.published);
-
 	const content = await readFile("posts/index.md", "utf-8");
 
 	return (
@@ -36,14 +28,7 @@ export default async function Page() {
 				}}
 			>
 				{content}
-			</Markdown>
-			<h2>Recent posts</h2>
-			<div className={styles.recent}>
-				{/* TODO: Cap the amount and link to an archive of all posts */}
-				{posts.map((post) => (
-					<PostCard key={post.path} post={post} className={styles.post} />
-				))}
-			</div>
+			</Markdown>	
 		</div>
 	);
 }

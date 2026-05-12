@@ -6,11 +6,7 @@ description: Our interpretation of the May 2026 Canvas hack
 
 ![A screenshot of the defaced Canvas login page. The text reads: "SHINYHUNTERS rooting your systems since '19 ;) ShinyHunters has breached Instructure (again). Instead of contacting us to resolve it they ignored us and applied some "security patches".](/blog/canvas-ransom.png)
 
-Instructure's LMS [Canvas has been compromised](https://www.cnn.com/2026/05/07/us/canvas-hack-strands-college-students-finals-week), leading to an extended outage. We discuss
-
-- How to react as a student
-- Which schools are affected
-- A theory about how it happened
+Instructure's LMS [Canvas has been compromised](https://www.cnn.com/2026/05/07/us/canvas-hack-strands-college-students-finals-week), leading to an extended outage. This post discusses the implications for students, lists out the institutions named, and discusses a technical attack vector.
 
 ---
 
@@ -38,15 +34,15 @@ Anticipate an increase in phishing and targeted scams that make use of the leake
 - Course enrollment information
 - Content on Canvas such as messages
 
-If you have submitted sensitive information to Canvas, make preparations for the information becoming public. The attackers gave a May 12, 2026 deadline before the data is leaked.
+If you have submitted sensitive information to Canvas, make preparations for the information becoming public.
 
 ### Did Instructure pay the ransom?
 
-This [Reddit thread](https://www.reddit.com/r/canvas/comments/1taj9of/instructure_has_reached_an_agreement_with_the/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button) claims that Instructure "reached an agreement with the unauthorized actor". There was no mention of a ransom or amount paid.
+The [Incident update page](https://www.instructure.com/incident_update) says that Instructure "reached an agreement" with the attackers. There was no mention of a ransom or amount paid.
 
 ## Who is affected?
 
-The attackers named over 8,000 institutions in a [text file](https://github.com/acmucsd/canvas-breach/blob/main/note.txt). You can search through it below. (check [here](https://acmucsd.github.io/canvas-breach/) if it doesn't load).
+The attackers named over 8,000 institutions in a [text file](https://github.com/acmucsd/canvas-breach/blob/main/raw/instructure_affected_schools_list.txt). You can search through it below. (check [here](https://acmucsd.github.io/canvas-breach/) if it doesn't load).
 
 <iframe src="https://acmucsd.github.io/canvas-breach/" title="Search affected institutions" style="width:100%;height:480px;border:1px solid #ddd;border-radius:6px;" loading="lazy"></iframe>
 
@@ -69,7 +65,7 @@ The specifics remain undisclosed, but [an article](https://businessinsights.bitd
 
 ### What Instructure has said
 
-[According to Instructure's CEO](https://www.instructure.com/incident_update), the exploit was via "support tickets in our Free for Teacher environment". Free for Teacher is Canvas's program allowing anyone to create their own Canvas instance for free.
+The incident update page says that the exploit was via "support tickets in our Free for Teacher environment". Free for Teacher is Canvas's program allowing anyone to create their own Canvas instance for free.
 
 Instructure has released a [changelog](https://community.instructure.com/en/discussion/666044/incident-change-log-for-may-2026) of UX updates in response to the incident. Here's a quick summary.
 
@@ -114,7 +110,7 @@ The changelog also frequently states "This change impacts Instructure employees.
 
 ### What we saw on Thursday
 
-On May 7 at around 13:00 PST, UCSD's Canvas page was defaced. The attackers' message was included in a [CSS file](https://github.com/acmucsd/canvas-breach/blob/main/canvas-override.css). It seems to have been inserted through Theme Editor. Because the mobile clients don't apply custom styles, they functioned until Instructure shut down the service for "scheduled maintenance".
+On May 7 at around 13:00 PST, UCSD's Canvas page was defaced. The attackers' message was included in a [CSS file](https://github.com/acmucsd/canvas-breach/blob/main/raw/canvas-override.css). It seems to have been inserted through Theme Editor. Because the mobile clients don't apply custom styles, they functioned until Instructure shut down the service for "scheduled maintenance".
 
 Instructure's response page says "the same issue that led to the unauthorized access the prior week". This leads us to believe that Canvas's initial response involved revoking malicious API keys but overlooked the original support tickets issue.
 

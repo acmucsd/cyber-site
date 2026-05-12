@@ -8,7 +8,7 @@
 	position: relative;
 	z-index: 5;
 }
-@media (max-width: 470px) {
+@media (max-width: 526px) {
 	.navbar {
 		overflow: visible;
 	}
@@ -40,7 +40,7 @@
 	gap: 20px;
 	padding: 0 20px;
 }
-@media (max-width: 470px) {
+@media (max-width: 526px) {
 	.links {
 		position: absolute;
 		height: var(--navbar-height);
@@ -109,7 +109,7 @@
 	align-items: center;
 	justify-content: center;
 }
-@media (max-width: 470px) {
+@media (max-width: 526px) {
 	.mobileToggle {
 		display: flex;
 	}

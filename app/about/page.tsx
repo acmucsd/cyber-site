@@ -11,7 +11,7 @@ export const revalidate = 86400;
 export const metadata: Metadata = {
 	title: "About | ACM Cyber",
 	description:
-		"We are a tight-knit community of students that exists within the ACM family at UCSD. We aim to foster a community of cybersecurity enthusiasts at UCSD, connecting them to the wider cybersecurity network. Our goals include making cybersecurity fun and accessible through workshops, competitions, networking events, and more, as you explore the complex cybersecurity landscape.",
+		"We're UC San Diego's student-led cybersecurity club, part of ACM at UC San Diego. We aim to make cybersecurity accessible through workshops, competitions, and socials.",
 };
 
 export default async function About() {
@@ -20,13 +20,8 @@ export default async function About() {
 	return (
 		<main className={styles.container}>
 			<h1>About ACM Cyber</h1>
-			{/* Not plagiarism at all!! I would never copy from https://ai.acmucsd.com/ */}
 			<p>
-				We are a tight-knit community of students that exists within the ACM family at UCSD. We aim to foster a
-				community of cybersecurity enthusiasts at UCSD, connecting them to the wider cybersecurity network. Our goals
-				include making cybersecurity fun and accessible through workshops, competitions, networking events, and more, as
-				you explore the complex cybersecurity landscape.
-			</p>
+				We're UC San Diego's student-led cybersecurity club, part of the <Link href="https://acmucsd.com" className={styles.link}>ACM at UC San Diego</Link> student chapter. Through our workshops, competitions, and socials, we aim to make cybersecurity accessible and have tons of fun along the way.</p>
 			<h2>Join Us</h2>
 			<p>
 				ACM is a members-first community. There is no fee or application to become a member, and everyone is welcome,
@@ -37,14 +32,8 @@ export default async function About() {
 				and come to any of our events!
 			</p>
 			<p>
-				If you feel you have something you can bring to ACM Cyber, join our board! Board applications open every spring
-				quarter. If this seems too daunting, you can also apply to be a Diamond Staff in fall quarter to shadow an ACM
-				Cyber board member, learn how things are done behind the scenes, and eventually host your own event at the end
-				of the year! Join the{" "}
-				<Link href="https://acmurl.com/discord" className={styles.link}>
-					main ACM Discord
-				</Link>{" "}
-				for any applications-related questions or updates.
+				If our mission stands out to you, join our board! Board applications open every spring
+				quarter. If this seems too daunting, you can also apply to be a Diamond Staff in fall quarter. It's a lighter commitment where you can spend two quarters with us to see if we're right for each other.	
 			</p>
 			<p>
 				We are always looking for challenge developers for SDCTF. If you&rsquo;re interested, message the president on
@@ -55,9 +44,6 @@ export default async function About() {
 				.
 			</p>
 			<div className={styles.buttons}>
-				<Button href="https://acmurl.com/cyber-elections" primary>
-					Become a member
-				</Button>
 				<Button href="https://acmurl.com/cyber-elections">Board Elections</Button>
 				<Button href="https://acmurl.com/staff-info">Diamond Staff</Button>
 			</div>

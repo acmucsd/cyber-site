@@ -22,10 +22,9 @@ export default async function About() {
 			<h1>About ACM Cyber</h1>
 			{/* Not plagiarism at all!! I would never copy from https://ai.acmucsd.com/ */}
 			<p>
-				We are a tight-knit community of students that exists within the ACM family at UCSD. We aim to foster a
-				community of cybersecurity enthusiasts at UCSD, connecting them to the wider cybersecurity network. Our goals
-				include making cybersecurity fun and accessible through workshops, competitions, networking events, and more, as
-				you explore the complex cybersecurity landscape.
+				We're UC San Diego's student-led cybersecurity club, part of the ACM at UC San Diego student chapter. 
+				Through our workshops, competitions, and socials, we aim to make cybersecurity accessible 
+				and have tons of fun along the way.
 			</p>
 			<h2>Join Us</h2>
 			<p>

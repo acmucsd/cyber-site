@@ -34,11 +34,9 @@ Anticipate an increase in phishing and targeted scams that make use of the leake
 - Course enrollment information
 - Content on Canvas such as messages
 
-If you have submitted sensitive information to Canvas, make preparations for the information becoming public.
-
 ### Did Instructure pay the ransom?
 
-The [Incident update page](https://www.instructure.com/incident_update) says that Instructure "reached an agreement" with the attackers. There was no mention of a ransom or amount paid.
+Yes, according to a [document](https://www.instructure.com/sites/default/files/pdf/Instructure_Webinar_Questions_Privileged_Confidential_5.15.26.pdf) that has been released.
 
 ## Who is affected?
 
@@ -50,7 +48,7 @@ The attackers named over 8,000 institutions in a [text file](https://github.com/
 
 ## Who is behind the attack?
 
-The [ransom message](https://acmucsd.github.io/canvas-breach/msg.html) (cleaned for malware) attributes the attack to the [ShinyHunters](https://en.wikipedia.org/wiki/ShinyHunters) black-hat group. The IP address provided, `91.215.85.103`, [belongs to](https://bgp.tools/prefix/91.215.85.0/24) a Russian hosting provider known for ignoring requests to take down malware and phishing. The web server also hosts past leaks by ShinyHunters.
+The [ransom message](https://acmucsd.github.io/canvas-breach/msg.html) (cleaned for malware) attributes the attack to the [ShinyHunters](https://en.wikipedia.org/wiki/ShinyHunters) black-hat group. The IP address provided, `91.215.85.103`, [belongs to](https://bgp.tools/prefix/91.215.85.0/24) a Russian hosting provider called [Propsero](https://krebsonsecurity.com/2025/02/notorious-malware-spam-host-prospero-moves-to-kaspersky-lab/), which is a "bulletproof" host that ignores takedown requests. The web server also hosts past leaks by ShinyHunters.
 
 The attackers' site on the dark web appeared to link to the downloadable leaks hosted on the normal web. It expresses that targeted organizations must pay the ransom or face disclosure of the data to other cybercriminal groups.
 
@@ -58,64 +56,31 @@ The attackers' site on the dark web appeared to link to the downloadable leaks h
 
 ## How did the breach occur?
 
-The specifics remain undisclosed, but [an article](https://businessinsights.bitdefender.com/technical-advisory-shinyhunters-breach-instructure-canvas-lms) by Sean Nikkel of BitDefender lays out two likely techniques:
+### Late April
+Based on the webinar summary linked above and this [changelog](https://community.instructure.com/en/discussion/666044/incident-change-log-for-may-2026), the attackers used a cross-site scripting (XSS) vulnerability within the Free-for-Teacher system's support tickets system. Instructure employees' browsers, upon viewing the tickets, ran arbitrary code that stole priveleged credentials and allowed them access to multiple Canvas instances. They then exfiltrated data, perhaps using the GraphQL API.
 
-- Vishing and social engineering to gain priveleged credentials and access (typical ShinyHunters M.O.)
-- Privelege escalation through the Free-For-Teacher system and compromise due to improper isolation of Canvas instances
+In the changelog, Instructure restricted the GraphQL API's ability to access enrollment information after the initial breach but before May 7's defacement. They also increased restrictions on employee accounts by gating more actions behind SSO.
 
-### What Instructure has said
+### May 7
+This time, the attackers used a second XSS vulnerability within the discussions system. The XSS payload, when viewed, authorized a malicious [OAuth token](https://developerdocs.instructure.com/services/canvas/oauth2/file.oauth) to bypass the restrictions on employee accounts.
 
-The incident update page says that the exploit was via "support tickets in our Free for Teacher environment". Free for Teacher is Canvas's program allowing anyone to create their own Canvas instance for free.
+The defacement, which is how we were alerted to the incident, occured via use of the Canvas theme editor. This became apparent to us after one of our community members quickly identified that the message had been left in CSS. The mobile clients, which don't render custom themes, remained functional until Canvas itself was taken down by Instructure. The OAuth tokens themselves don't appear to provide access to the theme editor through the API, but they could have moved laterally towards theme editing from the tokens.
 
-Instructure has released a [changelog](https://community.instructure.com/en/discussion/666044/incident-change-log-for-may-2026) of UX updates in response to the incident. Here's a quick summary.
-
-Changes made before the May 7 defacement:
-
-- Better enforce external SSO before taking admin actions e.g. [themes](https://community.instructure.com/en/kb/articles/661411-how-do-i-upload-custom-javascript-and-css-files-to-an-account), [CSP](https://community.instructure.com/en/kb/articles/661603-how-do-i-manage-the-content-security-policy-for-an-account)
-- Stop GraphQL clients from reading all enrollment IDs in a course
-- Improve sanitization of inputs in Canvas's built in rich text editor
-
-After May 7:
-
-- Reenable HTML input in the rich text editor
-- Disable account self-registration
-- Gate third party apps' [developer key](https://developerdocs.instructure.com/services/canvas/oauth2/file.developer_keys) management behind SSO
-- Disallow the use of client-side JavaScript to accept OAuth permissions
-- Discourage bypassing browser-based authentication by restricting out-of-band redirect URLs
-- Stop showing API secrets on the frontend but allow them to be rotated more easily
-
-The changes having to do with HTML sanitization, CSP, and JavaScript seem to imply [XSS](https://en.wikipedia.org/wiki/Cross-site_scripting). This allows attackers to inject malicious JS into browser sessions. OAuth and third-party Canvas API clients are another common theme. Of note,
-
-- By default, developer keys are unscoped and match the permissions of the issuing account
-- Instructure employees can configure developer keys on customer instances
-
-> ### One possible series of events
->
-> 1. Attackers notice improper sanitization of support tickets and submit tickets containing malicious JS
-> 2. Instructure support staff view the tickets and run malicious JavaScript, allowing the attackers to hijack their sessions
-> 3. To persist their access, attackers use Instructure staff's sessions to create or steal developer keys with full access to all Canvas instances
-> 4. Attackers use these keys to exfiltrate data using GraphQL, which allows batching massive queries with fewer requests
-> 5. After Instructure fails to patch the XSS issue, attackers use Theme Editor to post their ransom note across different campuses (discussed further below)
-
-This seems to hit the major points discussed in the changelog, but because those changes are described as "precautionary", it's possible that not all were directly relevant to the attack.
-
-Confusingly, the changelog itself was updated.
-
-```diff
-- A new Root Account setting has been added to designate an "Elevated Auth Provider." When enabled, a user attempting to make admin actions must be authenticated through the selected auth provider, or the request will fail.
-+ A setting designates an Elevated Auth Provider for Instructure employees. When enabled, Instructure’s actions require the user to be authenticated through the selected provider. Requests from users authenticated through any other provider will fail.
-```
-
-The changelog also frequently states "This change impacts Instructure employees. The setting is configured by Instructure engineers and is not currently available to Canvas administrators.", implying that Instructure employees' administrative permissions could have been abused in the attack.
-
-### What we saw on Thursday
-
-On May 7 at around 13:00 PST, UCSD's Canvas page was defaced. The attackers' message was included in a [CSS file](https://github.com/acmucsd/canvas-breach/blob/main/raw/canvas-override.css). It seems to have been inserted through Theme Editor. Because the mobile clients don't apply custom styles, they functioned until Instructure shut down the service for "scheduled maintenance".
-
-Instructure's response page says "the same issue that led to the unauthorized access the prior week". This leads us to believe that Canvas's initial response involved revoking malicious API keys but overlooked the original support tickets issue.
+After this incident, Instructure implemented a series of patches relating to third-party integrations such as enforcing manual browser OAuth authentication and further restricting key management. Likely in response to the series of XSS vulnerabilities, they also locked down Canvas's built-in text editor.
 
 ---
 
-## What are people saying?
+## What are we learning from this?
 
-Our alumnus Gowtham has posted some [thoughts here](https://www.linkedin.com/posts/gowthamduggirala_bug-bounties-and-vulnerability-disclosure-activity-7458335816629555200-1SF2). Other users report discovering [vulnerabilities](https://www.reddit.com/r/cybersecurity/comments/1t6wmkw/reported_a_broken_access_control_bug_to/) in Canvas before the breach.
+### Bug reports
+Our alumnus Gowtham has posted some [thoughts here](https://www.linkedin.com/posts/gowthamduggirala_bug-bounties-and-vulnerability-disclosure-activity-7458335816629555200-1SF2) about bug reports. Other users, such as one on Reddit, report discovering [vulnerabilities](https://www.reddit.com/r/cybersecurity/comments/1t6wmkw/reported_a_broken_access_control_bug_to/) in Canvas before the breach, which appeared not to have been taken seriously.
+
+### Principle of least privelege
+No employee or user should have more access than they need to carry out their duties. It's always a smart idea to restrict destructive actions behind verification such as multi-factor authentication, as Instructure implemented after the attack.
+
+### Times are changing
+Cross-site scripting attacks were prevalent in the early Internet; Samy Kamkar's MySpace work comes to mind as a classic example. As sanitization improved and vulnerabilities were patched out of more systems, attackers such as ShinyHunters tended to use social engineering to carry out their attacks by fooling unwitting employees or humans with the required access.
+
+In 2026, many major vulnerabilities and attacks were against open source software, such as a string of Linux privelege escalation bugs and supply chain attacks on popular open source tools. One such bug, CopyFail, was discovered by an AI tool. 
+
+Canvas is open source as well, and although we are not saying that LLMs were used in this most recent attack, their use in vulnerability discovery represents a concerning trend. We may be seeing a time where technical vulnerabilities are more available to attackers than ever before, and increasingly abused as a result.
